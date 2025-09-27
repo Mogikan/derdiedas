@@ -7,7 +7,6 @@ interface RulesListProps {
 }
 
 const RulesList: React.FC<RulesListProps> = ({ onBack }) => {
-  // Группируем слова по правилам с правильной типизацией
   const wordsByRule: Partial<Record<RuleId, GermanWord[]>> = {};
 
   GERMAN_WORDS_DATA.forEach((word) => {
@@ -18,7 +17,6 @@ const RulesList: React.FC<RulesListProps> = ({ onBack }) => {
     wordsByRule[ruleId]!.push(word);
   });
 
-  // Сортируем правила по категориям с правильной типизацией
   const allRuleIds = Object.keys(RULES) as RuleId[];
 
   const ruleCategories = {
@@ -31,6 +29,62 @@ const RulesList: React.FC<RulesListProps> = ({ onBack }) => {
         !RULES[ruleId].includes("→ das") &&
         !RULES[ruleId].includes("→ der")
     ),
+  };
+
+  const CategorySection = ({
+    title,
+    ruleIds,
+    className,
+  }: {
+    title: string;
+    ruleIds: RuleId[];
+    className: string;
+  }) => {
+    // Безопасная проверка с явной проверкой на undefined
+    const rulesWithWords = ruleIds.filter((ruleId) => {
+      const words = wordsByRule[ruleId];
+      return words && words.length > 0;
+    });
+
+    if (rulesWithWords.length === 0) return null;
+
+    return (
+      <div className="rule-category">
+        <h2 className={`category-title ${className}`}>{title}</h2>
+        {rulesWithWords.map((ruleId) => {
+          const words = wordsByRule[ruleId];
+          if (!words) return null;
+
+          return (
+            <div key={ruleId} className="rule-item">
+              <h3 className="rule-title">{RULES[ruleId]}</h3>
+              <div className="rule-words">
+                {words.slice(0, 10).map((word, index) => (
+                  <div key={index} className="word-example">
+                    <span className={`article ${word.article}`}>
+                      {word.article}
+                    </span>
+                    <span className="word-text">{word.word}</span>
+                    <span className="word-translation">
+                      {" "}
+                      - {word.translation}
+                    </span>
+                    {word.isException && (
+                      <span className="exception-badge">искл.</span>
+                    )}
+                  </div>
+                ))}
+                {words.length > 10 && (
+                  <div className="more-words">
+                    ... и еще {words.length - 10} слов
+                  </div>
+                )}
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    );
   };
 
   return (
@@ -46,133 +100,29 @@ const RulesList: React.FC<RulesListProps> = ({ onBack }) => {
 
       <main className="rules-main">
         <div className="rules-categories">
-          {/* Женский род */}
-          <div className="rule-category">
-            <h2 className="category-title die">Женский род (die)</h2>
-            {ruleCategories.female.map((ruleId) => (
-              <div key={ruleId} className="rule-item">
-                <h3 className="rule-title">{RULES[ruleId]}</h3>
-                <div className="rule-words">
-                  {wordsByRule[ruleId]?.slice(0, 10).map((word, index) => (
-                    <div key={index} className="word-example">
-                      <span className={`article ${word.article}`}>
-                        {word.article}
-                      </span>
-                      <span className="word-text">{word.word}</span>
-                      <span className="word-translation">
-                        {" "}
-                        - {word.translation}
-                      </span>
-                      {word.isException && (
-                        <span className="exception-badge">искл.</span>
-                      )}
-                    </div>
-                  ))}
-                  {wordsByRule[ruleId] && wordsByRule[ruleId]!.length > 10 && (
-                    <div className="more-words">
-                      ... и еще {wordsByRule[ruleId]!.length - 10} слов
-                    </div>
-                  )}
-                </div>
-              </div>
-            ))}
-          </div>
+          <CategorySection
+            title="Женский род (die)"
+            ruleIds={ruleCategories.female}
+            className="die"
+          />
 
-          {/* Средний род */}
-          <div className="rule-category">
-            <h2 className="category-title das">Средний род (das)</h2>
-            {ruleCategories.neutral.map((ruleId) => (
-              <div key={ruleId} className="rule-item">
-                <h3 className="rule-title">{RULES[ruleId]}</h3>
-                <div className="rule-words">
-                  {wordsByRule[ruleId]?.slice(0, 10).map((word, index) => (
-                    <div key={index} className="word-example">
-                      <span className={`article ${word.article}`}>
-                        {word.article}
-                      </span>
-                      <span className="word-text">{word.word}</span>
-                      <span className="word-translation">
-                        {" "}
-                        - {word.translation}
-                      </span>
-                      {word.isException && (
-                        <span className="exception-badge">искл.</span>
-                      )}
-                    </div>
-                  ))}
-                  {wordsByRule[ruleId] && wordsByRule[ruleId]!.length > 10 && (
-                    <div className="more-words">
-                      ... и еще {wordsByRule[ruleId]!.length - 10} слов
-                    </div>
-                  )}
-                </div>
-              </div>
-            ))}
-          </div>
+          <CategorySection
+            title="Средний род (das)"
+            ruleIds={ruleCategories.neutral}
+            className="das"
+          />
 
-          {/* Мужской род */}
-          <div className="rule-category">
-            <h2 className="category-title der">Мужской род (der)</h2>
-            {ruleCategories.male.map((ruleId) => (
-              <div key={ruleId} className="rule-item">
-                <h3 className="rule-title">{RULES[ruleId]}</h3>
-                <div className="rule-words">
-                  {wordsByRule[ruleId]?.slice(0, 10).map((word, index) => (
-                    <div key={index} className="word-example">
-                      <span className={`article ${word.article}`}>
-                        {word.article}
-                      </span>
-                      <span className="word-text">{word.word}</span>
-                      <span className="word-translation">
-                        {" "}
-                        - {word.translation}
-                      </span>
-                      {word.isException && (
-                        <span className="exception-badge">искл.</span>
-                      )}
-                    </div>
-                  ))}
-                  {wordsByRule[ruleId] && wordsByRule[ruleId]!.length > 10 && (
-                    <div className="more-words">
-                      ... и еще {wordsByRule[ruleId]!.length - 10} слов
-                    </div>
-                  )}
-                </div>
-              </div>
-            ))}
-          </div>
+          <CategorySection
+            title="Мужской род (der)"
+            ruleIds={ruleCategories.male}
+            className="der"
+          />
 
-          {/* Другие правила */}
-          <div className="rule-category">
-            <h2 className="category-title">Другие правила</h2>
-            {ruleCategories.other.map((ruleId) => (
-              <div key={ruleId} className="rule-item">
-                <h3 className="rule-title">{RULES[ruleId]}</h3>
-                <div className="rule-words">
-                  {wordsByRule[ruleId]?.slice(0, 10).map((word, index) => (
-                    <div key={index} className="word-example">
-                      <span className={`article ${word.article}`}>
-                        {word.article}
-                      </span>
-                      <span className="word-text">{word.word}</span>
-                      <span className="word-translation">
-                        {" "}
-                        - {word.translation}
-                      </span>
-                      {word.isException && (
-                        <span className="exception-badge">искл.</span>
-                      )}
-                    </div>
-                  ))}
-                  {wordsByRule[ruleId] && wordsByRule[ruleId]!.length > 10 && (
-                    <div className="more-words">
-                      ... и еще {wordsByRule[ruleId]!.length - 10} слов
-                    </div>
-                  )}
-                </div>
-              </div>
-            ))}
-          </div>
+          <CategorySection
+            title="Другие правила"
+            ruleIds={ruleCategories.other}
+            className="other"
+          />
         </div>
       </main>
     </div>

@@ -3,7 +3,7 @@ import { Statistics } from "../types";
 import { RULES } from "../data/germanWords";
 
 interface StatisticsViewProps {
-  statistics: Statistics;
+  statistics: Statistics & { accuracy?: number };
   onBack: () => void;
   onClearMistakes: () => void;
 }
@@ -14,9 +14,10 @@ const StatisticsView: React.FC<StatisticsViewProps> = ({
   onClearMistakes,
 }) => {
   const accuracy =
-    statistics.totalAttempts > 0
+    statistics.accuracy ||
+    (statistics.totalAttempts > 0
       ? Math.round((statistics.correctAnswers / statistics.totalAttempts) * 100)
-      : 0;
+      : 0);
 
   return (
     <div className="app">
@@ -33,7 +34,7 @@ const StatisticsView: React.FC<StatisticsViewProps> = ({
         <div className="statistics-container">
           <div className="stats-overview">
             <div className="stat-card">
-              <h3>Всего ответов</h3>
+              <h3>Отвечено вопросов</h3>
               <div className="stat-number">{statistics.totalAttempts}</div>
             </div>
             <div className="stat-card">

@@ -1,35 +1,35 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { GermanWord, RULES } from "../data/germanWords";
 
 interface WordCardProps {
   word: GermanWord;
-  onAnswer: (isCorrect: boolean) => void;
+  onAnswer: (word: GermanWord, isCorrect: boolean) => void;
   onNextWord: () => void;
+  showResult: boolean;
+  answeredCorrectly: boolean | null;
 }
 
-const WordCard: React.FC<WordCardProps> = ({ word, onAnswer, onNextWord }) => {
+const WordCard: React.FC<WordCardProps> = ({
+  word,
+  onAnswer,
+  onNextWord,
+  showResult,
+  answeredCorrectly,
+}) => {
   const [userArticle, setUserArticle] = useState<string>("");
-  const [showResult, setShowResult] = useState(false);
-  const [showRule, setShowRule] = useState(false);
 
   const handleArticleClick = (article: string) => {
     if (showResult) return;
 
-    setUserArticle(article);
     const isCorrect = article === word.article;
-    onAnswer(isCorrect);
-    setShowResult(true);
-    setShowRule(true);
+    setUserArticle(article);
+    onAnswer(word, isCorrect);
   };
 
   const handleNext = () => {
     setUserArticle("");
-    setShowResult(false);
-    setShowRule(false);
     onNextWord();
   };
-
-  const isCorrect = userArticle === word.article;
 
   return (
     <div className="card">
@@ -51,9 +51,11 @@ const WordCard: React.FC<WordCardProps> = ({ word, onAnswer, onNextWord }) => {
       ) : (
         <div className="result">
           <div
-            className={`result-message ${isCorrect ? "correct" : "incorrect"}`}
+            className={`result-message ${
+              answeredCorrectly ? "correct" : "incorrect"
+            }`}
           >
-            {isCorrect ? "Правильно! ✓" : "Неправильно! ✗"}
+            {answeredCorrectly ? "Правильно! ✓" : "Неправильно! ✗"}
           </div>
 
           <div className="correct-answer">
@@ -67,8 +69,7 @@ const WordCard: React.FC<WordCardProps> = ({ word, onAnswer, onNextWord }) => {
         </div>
       )}
 
-      {/* Правило всегда внизу, но скрыто до ответа */}
-      {showRule && (
+      <div className={`rule-container ${showResult ? "visible" : "hidden"}`}>
         <div className="rule-info">
           <h4>
             {word.isException ? "Исключение! " : "Правило: "}
@@ -79,9 +80,8 @@ const WordCard: React.FC<WordCardProps> = ({ word, onAnswer, onNextWord }) => {
               ⚠️ Исключение из правила: {RULES[word.exceptionTo]}
             </p>
           )}
-          <p>{RULES[word.ruleId]}</p>
         </div>
-      )}
+      </div>
     </div>
   );
 };

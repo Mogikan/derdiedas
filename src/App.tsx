@@ -1,12 +1,17 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, {
+  useState,
+  useEffect,
+  useCallback,
+  useReducer,
+  useRef,
+} from "react";
 import WordCard from "./components/WordCard";
 import Filter from "./components/Filter";
 import StatisticsView from "./components/StatisticsView";
-import GERMAN_WORDS_DATA from "./data/germanWords";
-import { RuleId, GermanWord } from "./data/germanWords";
-import { Statistics, Mistake, ViewMode } from "./types";
-import "./App.css";
 import RulesList from "./components/RulesList";
+import GERMAN_WORDS_DATA, { GermanWord, RuleId } from "./data/germanWords";
+import { Statistics, ViewMode } from "./types";
+import "./App.css";
 
 const getBalancedShuffle = (words: GermanWord[]): GermanWord[] => {
   if (words.length === 0) return [];
@@ -39,29 +44,157 @@ const getBalancedShuffle = (words: GermanWord[]): GermanWord[] => {
   return result.sort(() => Math.random() - 0.5);
 };
 
+const restoreDates = (statistics: any): Statistics => {
+  if (!statistics)
+    return {
+      totalAttempts: 0,
+      correctAnswers: 0,
+      mistakes: [],
+      byRule: {},
+    };
+
+  return {
+    totalAttempts: statistics.totalAttempts || 0,
+    correctAnswers: statistics.correctAnswers || 0,
+    mistakes: (statistics.mistakes || []).map((mistake: any) => ({
+      ...mistake,
+      lastAttempt: new Date(mistake.lastAttempt),
+    })),
+    byRule: statistics.byRule || {},
+  };
+};
+
+type StatisticsAction =
+  | { type: "ANSWER"; payload: { word: GermanWord; isCorrect: boolean } }
+  | { type: "RESET" }
+  | { type: "CLEAR_MISTAKES" }
+  | { type: "LOAD_STATISTICS"; payload: Statistics };
+
+const statisticsReducer = (
+  state: Statistics,
+  action: StatisticsAction
+): Statistics => {
+  switch (action.type) {
+    case "ANSWER": {
+      const { word, isCorrect } = action.payload;
+
+      const newState = {
+        ...state,
+        mistakes: [...state.mistakes],
+        byRule: { ...state.byRule },
+      };
+
+      newState.totalAttempts = state.totalAttempts + 1;
+      if (isCorrect) {
+        newState.correctAnswers = state.correctAnswers + 1;
+      }
+
+      if (!isCorrect) {
+        const mistakeIndex = state.mistakes.findIndex(
+          (m) => m.word === word.word
+        );
+
+        if (mistakeIndex >= 0) {
+          newState.mistakes = [...state.mistakes];
+          newState.mistakes[mistakeIndex] = {
+            ...state.mistakes[mistakeIndex],
+            count: state.mistakes[mistakeIndex].count + 1,
+            lastAttempt: new Date(),
+          };
+        } else {
+          newState.mistakes = [
+            ...state.mistakes,
+            {
+              word: word.word,
+              article: word.article,
+              translation: word.translation,
+              ruleId: word.ruleId,
+              count: 1,
+              lastAttempt: new Date(),
+            },
+          ];
+        }
+      }
+
+      if (!newState.byRule[word.ruleId]) {
+        newState.byRule[word.ruleId] = { attempts: 0, mistakes: 0 };
+      } else {
+        newState.byRule[word.ruleId] = { ...newState.byRule[word.ruleId] };
+      }
+
+      newState.byRule[word.ruleId].attempts =
+        (state.byRule[word.ruleId]?.attempts || 0) + 1;
+
+      if (!isCorrect) {
+        newState.byRule[word.ruleId].mistakes =
+          (state.byRule[word.ruleId]?.mistakes || 0) + 1;
+      }
+
+      return newState;
+    }
+
+    case "RESET":
+      return {
+        totalAttempts: 0,
+        correctAnswers: 0,
+        mistakes: [],
+        byRule: {},
+      };
+
+    case "CLEAR_MISTAKES":
+      return {
+        ...state,
+        mistakes: [],
+      };
+
+    case "LOAD_STATISTICS":
+      return action.payload;
+
+    default:
+      return state;
+  }
+};
+
+const initialState: Statistics = {
+  totalAttempts: 0,
+  correctAnswers: 0,
+  mistakes: [],
+  byRule: {},
+};
+
 function App() {
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
-  const [score, setScore] = useState(0);
-  const [totalAnswered, setTotalAnswered] = useState(0);
   const [filter, setFilter] = useState<RuleId | "all">("all");
   const [shuffledWords, setShuffledWords] = useState<GermanWord[]>([]);
   const [viewMode, setViewMode] = useState<ViewMode>("learning");
-  const [statistics, setStatistics] = useState<Statistics>({
-    totalAttempts: 0,
-    correctAnswers: 0,
-    mistakes: [],
-    byRule: {},
-  });
 
-  // Загрузка статистики из localStorage
+  const [statistics, dispatch] = useReducer(statisticsReducer, initialState);
+  const [showResult, setShowResult] = useState(false);
+  const [answeredCorrectly, setAnsweredCorrectly] = useState<boolean | null>(
+    null
+  );
+  // Используем ref для хранения текущего слова
+  const currentWordRef = useRef<GermanWord | null>(null);
+
+  // Обновляем ref при изменении текущего слова
+  useEffect(() => {
+    currentWordRef.current = shuffledWords[currentWordIndex] || null;
+  }, [shuffledWords, currentWordIndex]);
+
   useEffect(() => {
     const savedStats = localStorage.getItem("german-articles-statistics");
     if (savedStats) {
-      setStatistics(JSON.parse(savedStats));
+      try {
+        const parsedStats = JSON.parse(savedStats);
+        const restoredStats = restoreDates(parsedStats);
+        dispatch({ type: "LOAD_STATISTICS", payload: restoredStats });
+      } catch (error) {
+        console.error("Error loading statistics:", error);
+        dispatch({ type: "RESET" });
+      }
     }
   }, []);
 
-  // Сохранение статистики в localStorage
   useEffect(() => {
     localStorage.setItem(
       "german-articles-statistics",
@@ -69,90 +202,49 @@ function App() {
     );
   }, [statistics]);
 
-  // Фильтрация и перемешивание слов
   useEffect(() => {
-    let wordsToUse: GermanWord[] = [];
-
-    if (viewMode === "mistakes") {
-      wordsToUse = GERMAN_WORDS_DATA.filter((word) =>
-        statistics.mistakes.some((mistake) => mistake.word === word.word)
-      );
-    } else {
-      wordsToUse =
+    if (viewMode === "learning") {
+      const wordsToUse =
         filter === "all"
           ? GERMAN_WORDS_DATA
           : GERMAN_WORDS_DATA.filter((word) => word.ruleId === filter);
-    }
 
-    setShuffledWords(getBalancedShuffle(wordsToUse));
-    setCurrentWordIndex(0);
-    setScore(0);
-    setTotalAnswered(0);
-  }, [filter, viewMode, statistics.mistakes]);
+      setShuffledWords(getBalancedShuffle(wordsToUse));
+      setCurrentWordIndex(0);
+    }
+  }, [filter, viewMode]);
+
+  // Обновляем слова при изменении списка ошибок или переходе в режим ошибок
+  useEffect(() => {
+    if (viewMode === "mistakes") {
+      const wordsToUse = GERMAN_WORDS_DATA.filter((word) =>
+        statistics.mistakes.some((mistake) => mistake.word === word.word)
+      );
+
+      setShuffledWords(getBalancedShuffle(wordsToUse));
+      setCurrentWordIndex(0);
+    }
+  }, [viewMode, statistics.mistakes]);
 
   const currentWord = shuffledWords[currentWordIndex];
 
-  const updateStatistics = useCallback(
-    (word: GermanWord, isCorrect: boolean) => {
-      setStatistics((prev) => {
-        const newStats = { ...prev };
-        newStats.totalAttempts++;
+  const handleAnswer = useCallback((word: GermanWord, isCorrect: boolean) => {
+    console.log("Processing answer for:", word.word, "isCorrect:", isCorrect);
 
-        if (isCorrect) {
-          newStats.correctAnswers++;
-        } else {
-          // Обновляем ошибки
-          const mistakeIndex = newStats.mistakes.findIndex(
-            (m) => m.word === word.word
-          );
-          if (mistakeIndex >= 0) {
-            newStats.mistakes[mistakeIndex] = {
-              ...newStats.mistakes[mistakeIndex],
-              count: newStats.mistakes[mistakeIndex].count + 1,
-              lastAttempt: new Date(),
-            };
-          } else {
-            newStats.mistakes.push({
-              word: word.word,
-              article: word.article,
-              translation: word.translation,
-              ruleId: word.ruleId,
-              count: 1,
-              lastAttempt: new Date(),
-            });
-          }
-        }
+    dispatch({
+      type: "ANSWER",
+      payload: { word, isCorrect },
+    });
 
-        // Обновляем статистику по правилам
-        if (!newStats.byRule[word.ruleId]) {
-          newStats.byRule[word.ruleId] = { attempts: 0, mistakes: 0 };
-        }
-        newStats.byRule[word.ruleId].attempts++;
-        if (!isCorrect) {
-          newStats.byRule[word.ruleId].mistakes++;
-        }
+    setAnsweredCorrectly(isCorrect);
+    setShowResult(true);
+  }, []);
 
-        return newStats;
-      });
-    },
-    []
-  );
-
-  const handleAnswer = useCallback(
-    (isCorrect: boolean) => {
-      if (isCorrect) {
-        setScore((prev) => prev + 1);
-      }
-      setTotalAnswered((prev) => prev + 1);
-
-      if (currentWord) {
-        updateStatistics(currentWord, isCorrect);
-      }
-    },
-    [currentWord, updateStatistics]
-  );
-
+  // В handleNextWord
   const handleNextWord = useCallback(() => {
+    setShowResult(false);
+    setAnsweredCorrectly(null);
+
     if (currentWordIndex < shuffledWords.length - 1) {
       setCurrentWordIndex((prev) => prev + 1);
     } else {
@@ -168,26 +260,28 @@ function App() {
   const handleReset = () => {
     setShuffledWords((prev) => getBalancedShuffle(prev));
     setCurrentWordIndex(0);
-    setScore(0);
-    setTotalAnswered(0);
+    dispatch({ type: "RESET" });
   };
 
   const clearMistakes = () => {
-    setStatistics((prev) => ({
-      ...prev,
-      mistakes: [],
-    }));
+    dispatch({ type: "CLEAR_MISTAKES" });
   };
+
+  const accuracy =
+    statistics.totalAttempts > 0
+      ? Math.round((statistics.correctAnswers / statistics.totalAttempts) * 100)
+      : 0;
 
   if (viewMode === "statistics") {
     return (
       <StatisticsView
-        statistics={statistics}
+        statistics={{ ...statistics, accuracy }}
         onBack={() => setViewMode("learning")}
         onClearMistakes={clearMistakes}
       />
     );
   }
+
   if (viewMode === "rules") {
     return <RulesList onBack={() => setViewMode("learning")} />;
   }
@@ -197,9 +291,10 @@ function App() {
       <div className="app">
         <header className="header">
           <div className="header-top">
-            <h1>Изучение немецких артиклей</h1>
+            <h1>Der Die Das</h1>
             <div className="stats">
-              Правильно: {score} из {totalAnswered}
+              Правильно: {statistics.correctAnswers} из{" "}
+              {statistics.totalAttempts}
             </div>
           </div>
         </header>
@@ -226,16 +321,28 @@ function App() {
   }
 
   if (!currentWord) {
-    return <div className="loading">Загрузка...</div>;
+    return (
+      <div className="app">
+        <header className="header">
+          <h1>Der Die Das</h1>
+        </header>
+        <main className="main">
+          <div className="loading">Загрузка слова...</div>
+        </main>
+      </div>
+    );
   }
 
   return (
     <div className="app">
       <header className="header">
         <div className="header-top">
-          <h1>Изучение немецких артиклей</h1>
+          <h1>Der Die Das</h1>
           <div className="stats">
-            Правильно: {score} из {totalAnswered}
+            Правильно: {statistics.correctAnswers} из {statistics.totalAttempts}
+            {statistics.totalAttempts > 0 && (
+              <span className="accuracy"> ({accuracy}%)</span>
+            )}
           </div>
         </div>
 
@@ -263,7 +370,7 @@ function App() {
               Статистика
             </button>
             <button className="mode-btn" onClick={() => setViewMode("rules")}>
-              Правила
+              Все правила
             </button>
           </div>
         </div>
@@ -279,6 +386,8 @@ function App() {
           word={currentWord}
           onAnswer={handleAnswer}
           onNextWord={handleNextWord}
+          showResult={showResult}
+          answeredCorrectly={answeredCorrectly}
         />
       </main>
 
