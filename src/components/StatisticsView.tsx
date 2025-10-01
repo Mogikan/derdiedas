@@ -1,7 +1,6 @@
 import React from "react";
 import { Statistics } from "../types";
-import { RULES } from "../data/germanWords";
-
+import { useTranslation } from "react-i18next";
 interface StatisticsViewProps {
   statistics: Statistics & { accuracy?: number };
   onBack: () => void;
@@ -13,6 +12,10 @@ const StatisticsView: React.FC<StatisticsViewProps> = ({
   onBack,
   onClearMistakes,
 }) => {
+  const { i18n } = useTranslation();
+  const { t } = useTranslation();
+  const currentLang = i18n.language;
+
   const accuracy =
     statistics.accuracy ||
     (statistics.totalAttempts > 0
@@ -23,9 +26,9 @@ const StatisticsView: React.FC<StatisticsViewProps> = ({
     <div className="app">
       <header className="header">
         <div className="header-top">
-          <h1>Статистика обучения</h1>
+          <h1>{t("statistics")}</h1>
           <button className="back-btn" onClick={onBack}>
-            ← Назад
+            {t("backToLearning")}
           </button>
         </div>
       </header>
@@ -34,17 +37,17 @@ const StatisticsView: React.FC<StatisticsViewProps> = ({
         <div className="statistics-container">
           <div className="stats-overview">
             <div className="stat-card">
-              <h3>Отвечено вопросов</h3>
+              <h3>{t("answeredQuestions")}</h3>
               <div className="stat-number">{statistics.totalAttempts}</div>
             </div>
             <div className="stat-card">
-              <h3>Правильно</h3>
+              <h3>{t("correctAnswers")}</h3>
               <div className="stat-number correct">
                 {statistics.correctAnswers}
               </div>
             </div>
             <div className="stat-card">
-              <h3>Точность</h3>
+              <h3>{t("accuracy")}</h3>
               <div className="stat-number">{accuracy}%</div>
             </div>
           </div>
@@ -52,9 +55,11 @@ const StatisticsView: React.FC<StatisticsViewProps> = ({
           {statistics.mistakes.length > 0 && (
             <div className="mistakes-section">
               <div className="section-header">
-                <h2>Слова с ошибками ({statistics.mistakes.length})</h2>
+                <h2>
+                  {t("mistakeWords", { count: statistics.mistakes.length })}
+                </h2>
                 <button className="clear-btn" onClick={onClearMistakes}>
-                  Очистить все
+                  {t("clearAll")}
                 </button>
               </div>
 
@@ -70,13 +75,16 @@ const StatisticsView: React.FC<StatisticsViewProps> = ({
                         {mistake.word}
                       </div>
                       <div className="mistake-translation">
-                        {mistake.translation}
+                        {mistake.translations[currentLang] ||
+                          mistake.translations["en"] ||
+                          mistake.word}
                       </div>
                       <div className="mistake-count">
-                        Ошибок: {mistake.count}
+                        {t("mistakesCount")} {mistake.count}
                       </div>
+
                       <div className="mistake-rule">
-                        {RULES[mistake.ruleId as keyof typeof RULES]}
+                        {t(`rule:${mistake.ruleId}`)}
                       </div>
                     </div>
                   ))}
@@ -85,7 +93,7 @@ const StatisticsView: React.FC<StatisticsViewProps> = ({
           )}
 
           <div className="rules-section">
-            <h2>Статистика по правилам</h2>
+            <h2>{t("ruleStats")}</h2>
             <div className="rules-list">
               {Object.entries(statistics.byRule)
                 .sort(([, a], [, b]) => b.mistakes - a.mistakes)
@@ -97,11 +105,10 @@ const StatisticsView: React.FC<StatisticsViewProps> = ({
                             100
                         )
                       : 0;
-
                   return (
                     <div key={ruleId} className="rule-stat-item">
                       <div className="rule-header">
-                        <h4>{RULES[ruleId as keyof typeof RULES]}</h4>
+                        <h4>{t(`rule:${ruleId}`)}</h4>
                         <span
                           className={`accuracy ${
                             ruleAccuracy < 70 ? "low" : ""
@@ -111,8 +118,12 @@ const StatisticsView: React.FC<StatisticsViewProps> = ({
                         </span>
                       </div>
                       <div className="rule-details">
-                        <span>Попыток: {stats.attempts}</span>
-                        <span>Ошибок: {stats.mistakes}</span>
+                        <span>
+                          {t("attempts")} {stats.attempts}
+                        </span>
+                        <span>
+                          {t("mistakesCount")} {stats.mistakes}
+                        </span>
                       </div>
                     </div>
                   );

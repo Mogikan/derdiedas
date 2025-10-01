@@ -12,6 +12,7 @@ import RulesList from "./components/RulesList";
 import GERMAN_WORDS_DATA, { GermanWord, RuleId } from "./data/germanWords";
 import { Statistics, ViewMode } from "./types";
 import "./App.css";
+import { useTranslation } from "react-i18next";
 
 const getBalancedShuffle = (words: GermanWord[]): GermanWord[] => {
   if (words.length === 0) return [];
@@ -107,7 +108,7 @@ const statisticsReducer = (
             {
               word: word.word,
               article: word.article,
-              translation: word.translation,
+              translations: word.translations,
               ruleId: word.ruleId,
               count: 1,
               lastAttempt: new Date(),
@@ -173,6 +174,20 @@ function App() {
   const [answeredCorrectly, setAnsweredCorrectly] = useState<boolean | null>(
     null
   );
+  const { i18n, t } = useTranslation();
+  const languages = [
+    { code: "en", name: "EN" },
+    { code: "ru", name: "RU" },
+    { code: "de", name: "DE" },
+    { code: "es", name: "ES" },
+    { code: "fr", name: "FR" },
+    { code: "ja", name: "JA" },
+    { code: "zh", name: "ZH" },
+    { code: "pt", name: "PT" },
+    { code: "ko", name: "KO" },
+    { code: "ar", name: "AR" },
+    { code: "hi", name: "HI" },
+  ];
   // Используем ref для хранения текущего слова
   const currentWordRef = useRef<GermanWord | null>(null);
 
@@ -291,9 +306,9 @@ function App() {
       <div className="app">
         <header className="header">
           <div className="header-top">
-            <h1>Der Die Das</h1>
+            <h1>{t("appTitle")}</h1>
             <div className="stats">
-              Правильно: {statistics.correctAnswers} из{" "}
+              {t("correctAnswers")} : {statistics.correctAnswers} {t("from")}{" "}
               {statistics.totalAttempts}
             </div>
           </div>
@@ -302,17 +317,17 @@ function App() {
           <div className="no-words-message">
             {viewMode === "mistakes" ? (
               <>
-                <h3>Нет слов с ошибками!</h3>
-                <p>Вы пока не сделали ни одной ошибки или очистили историю.</p>
+                <h3>{t("noMistakes")}</h3>
+                <p>{t("noMistakesDesc")}</p>
                 <button
                   className="mode-btn"
                   onClick={() => setViewMode("learning")}
                 >
-                  Вернуться к обучению
+                  {t("returnToLearning")}
                 </button>
               </>
             ) : (
-              <p>Нет слов для изучения по выбранному фильтру</p>
+              <p>{t("noWordsForFilter")}</p>
             )}
           </div>
         </main>
@@ -324,10 +339,10 @@ function App() {
     return (
       <div className="app">
         <header className="header">
-          <h1>Der Die Das</h1>
+          <h1>{t("appTitle")}</h1>
         </header>
         <main className="main">
-          <div className="loading">Загрузка слова...</div>
+          <div className="loading">{t("loading")}</div>
         </main>
       </div>
     );
@@ -337,9 +352,10 @@ function App() {
     <div className="app">
       <header className="header">
         <div className="header-top">
-          <h1>Der Die Das</h1>
+          <h1>{t("appTitle")}</h1>
           <div className="stats">
-            Правильно: {statistics.correctAnswers} из {statistics.totalAttempts}
+            {t("correctAnswers")} : {statistics.correctAnswers} {t("from")}{" "}
+            {statistics.totalAttempts}
             {statistics.totalAttempts > 0 && (
               <span className="accuracy"> ({accuracy}%)</span>
             )}
@@ -347,6 +363,17 @@ function App() {
         </div>
 
         <div className="header-controls">
+          <div className="language-switcher">
+            {languages.map((lang) => (
+              <button
+                key={lang.code}
+                onClick={() => i18n.changeLanguage(lang.code)}
+                className={i18n.language === lang.code ? "active" : ""}
+              >
+                {lang.name}
+              </button>
+            ))}
+          </div>
           <Filter currentFilter={filter} onFilterChange={handleFilterChange} />
 
           <div className="view-mode-buttons">
@@ -354,30 +381,30 @@ function App() {
               className={`mode-btn ${viewMode === "learning" ? "active" : ""}`}
               onClick={() => setViewMode("learning")}
             >
-              Обучение
+              {t("learning")}
             </button>
             <button
               className={`mode-btn ${viewMode === "mistakes" ? "active" : ""}`}
               onClick={() => setViewMode("mistakes")}
               disabled={statistics.mistakes.length === 0}
             >
-              Ошибки ({statistics.mistakes.length})
+              {t("mistakes", { count: statistics.mistakes.length })}
             </button>
             <button
               className="mode-btn"
               onClick={() => setViewMode("statistics")}
             >
-              Статистика
+              {t("statistics")}
             </button>
             <button className="mode-btn" onClick={() => setViewMode("rules")}>
-              Все правила
+              {t("allRules")}
             </button>
           </div>
         </div>
 
         <div className="progress-indicator">
-          {viewMode === "mistakes" ? "Повторение ошибок: " : "Слово "}
-          {currentWordIndex + 1} из {shuffledWords.length}
+          {viewMode === "mistakes" ? t("reviewingMistakes") : t("word")}
+          {currentWordIndex + 1} {t("from")} {shuffledWords.length}
         </div>
       </header>
 
@@ -393,11 +420,11 @@ function App() {
 
       <footer className="footer">
         <button className="reset-btn" onClick={handleReset}>
-          Сбросить прогресс
+          {t("resetProgress")}
         </button>
         {viewMode === "mistakes" && (
           <button className="clear-btn" onClick={clearMistakes}>
-            Очистить ошибки
+            {t("clearMistakes")}
           </button>
         )}
       </footer>

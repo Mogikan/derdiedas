@@ -1,5 +1,6 @@
-import { useState } from "react";
-import { GermanWord, RULES } from "../data/germanWords";
+import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
+import { GermanWord } from "../data/germanWords";
 
 interface WordCardProps {
   word: GermanWord;
@@ -16,11 +17,15 @@ const WordCard: React.FC<WordCardProps> = ({
   showResult,
   answeredCorrectly,
 }) => {
+  const { i18n, t } = useTranslation();
+  const currentLang = i18n.language;
+  const translation =
+    word.translations[currentLang] || word.translations["en"] || word.word;
+
   const [userArticle, setUserArticle] = useState<string>("");
 
   const handleArticleClick = (article: string) => {
     if (showResult) return;
-
     const isCorrect = article === word.article;
     setUserArticle(article);
     onAnswer(word, isCorrect);
@@ -34,8 +39,7 @@ const WordCard: React.FC<WordCardProps> = ({
   return (
     <div className="card">
       <div className="word">{word.word}</div>
-      <div className="translation">{word.translation}</div>
-
+      <div className="translation">{translation}</div>
       {!showResult ? (
         <div className="articles">
           {(["der", "die", "das"] as const).map((article) => (
@@ -55,29 +59,26 @@ const WordCard: React.FC<WordCardProps> = ({
               answeredCorrectly ? "correct" : "incorrect"
             }`}
           >
-            {answeredCorrectly ? "Правильно! ✓" : "Неправильно! ✗"}
+            {answeredCorrectly ? t("correct") : t("incorrect")}
           </div>
-
           <div className="correct-answer">
-            Правильный ответ:{" "}
+            {t("correctAnswer")}{" "}
             <span className={word.article}>{word.article}</span> {word.word}
           </div>
-
           <button className="next-btn" onClick={handleNext}>
-            Следующее слово
+            {t("nextWord")}
           </button>
         </div>
       )}
-
       <div className={`rule-container ${showResult ? "visible" : "hidden"}`}>
         <div className="rule-info">
           <h4>
-            {word.isException ? "Исключение! " : "Правило: "}
-            {RULES[word.ruleId]}
+            {word.isException ? t("exception") + " " : t("rule") + " "}
+            {t(`rule:${word.ruleId}`)}
           </h4>
           {word.isException && word.exceptionTo && (
             <p className="exception-note">
-              ⚠️ Исключение из правила: {RULES[word.exceptionTo]}
+              {t("exceptionNote")} {t(`rule:${word.exceptionTo}`)}
             </p>
           )}
         </div>

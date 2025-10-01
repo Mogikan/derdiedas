@@ -1,14 +1,22 @@
 import React from "react";
-import { RuleId, RULES } from "../data/germanWords";
+import { RuleId } from "../data/germanWords";
+import {
+  ALL_RULE_IDS,
+  FEMALE_RULES,
+  NEUTRAL_RULES,
+  MALE_RULES,
+} from "../data/germanWords";
 import GERMAN_WORDS_DATA, { GermanWord } from "../data/germanWords";
-
+import { useTranslation } from "react-i18next";
 interface RulesListProps {
   onBack: () => void;
 }
 
 const RulesList: React.FC<RulesListProps> = ({ onBack }) => {
   const wordsByRule: Partial<Record<RuleId, GermanWord[]>> = {};
-
+  const { i18n } = useTranslation();
+  const { t } = useTranslation();
+  const currentLang = i18n.language;
   GERMAN_WORDS_DATA.forEach((word) => {
     const ruleId = word.ruleId as RuleId;
     if (!wordsByRule[ruleId]) {
@@ -17,17 +25,17 @@ const RulesList: React.FC<RulesListProps> = ({ onBack }) => {
     wordsByRule[ruleId]!.push(word);
   });
 
-  const allRuleIds = Object.keys(RULES) as RuleId[];
+  const allRuleIds = ALL_RULE_IDS;
 
   const ruleCategories = {
-    female: allRuleIds.filter((ruleId) => RULES[ruleId].includes("→ die")),
-    neutral: allRuleIds.filter((ruleId) => RULES[ruleId].includes("→ das")),
-    male: allRuleIds.filter((ruleId) => RULES[ruleId].includes("→ der")),
-    other: allRuleIds.filter(
+    female: ALL_RULE_IDS.filter((ruleId) => FEMALE_RULES.has(ruleId)),
+    neutral: ALL_RULE_IDS.filter((ruleId) => NEUTRAL_RULES.has(ruleId)),
+    male: ALL_RULE_IDS.filter((ruleId) => MALE_RULES.has(ruleId)),
+    other: ALL_RULE_IDS.filter(
       (ruleId) =>
-        !RULES[ruleId].includes("→ die") &&
-        !RULES[ruleId].includes("→ das") &&
-        !RULES[ruleId].includes("→ der")
+        !FEMALE_RULES.has(ruleId) &&
+        !NEUTRAL_RULES.has(ruleId) &&
+        !MALE_RULES.has(ruleId)
     ),
   };
 
@@ -57,7 +65,7 @@ const RulesList: React.FC<RulesListProps> = ({ onBack }) => {
 
           return (
             <div key={ruleId} className="rule-item">
-              <h3 className="rule-title">{RULES[ruleId]}</h3>
+              <h3 className="rule-title">{t(`rule:${ruleId}`)}</h3>
               <div className="rule-words">
                 {words.slice(0, 10).map((word, index) => (
                   <div key={index} className="word-example">
@@ -66,8 +74,10 @@ const RulesList: React.FC<RulesListProps> = ({ onBack }) => {
                     </span>
                     <span className="word-text">{word.word}</span>
                     <span className="word-translation">
-                      {" "}
-                      - {word.translation}
+                      {" - "}
+                      {word.translations[currentLang] ||
+                        word.translations["en"] ||
+                        word.word}
                     </span>
                     {word.isException && (
                       <span className="exception-badge">искл.</span>
@@ -91,9 +101,9 @@ const RulesList: React.FC<RulesListProps> = ({ onBack }) => {
     <div className="rules-list-container">
       <header className="header">
         <div className="header-top">
-          <h1>Все правила и слова</h1>
+          <h1>{t("allRules")}</h1>
           <button className="back-btn" onClick={onBack}>
-            ← Назад к обучению
+            {t("backToLearning")}
           </button>
         </div>
       </header>
@@ -101,25 +111,25 @@ const RulesList: React.FC<RulesListProps> = ({ onBack }) => {
       <main className="rules-main">
         <div className="rules-categories">
           <CategorySection
-            title="Женский род (die)"
+            title={t("famale")}
             ruleIds={ruleCategories.female}
             className="die"
           />
 
           <CategorySection
-            title="Средний род (das)"
+            title={t("neutral")}
             ruleIds={ruleCategories.neutral}
             className="das"
           />
 
           <CategorySection
-            title="Мужской род (der)"
+            title={t("male")}
             ruleIds={ruleCategories.male}
             className="der"
           />
 
           <CategorySection
-            title="Другие правила"
+            title={t("otherRules")}
             ruleIds={ruleCategories.other}
             className="other"
           />
