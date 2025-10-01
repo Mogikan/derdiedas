@@ -67,7 +67,7 @@ const RulesList: React.FC<RulesListProps> = ({ onBack }) => {
             <div key={ruleId} className="rule-item">
               <h3 className="rule-title">{t(`rule:${ruleId}`)}</h3>
               <div className="rule-words">
-                {words.slice(0, 10).map((word, index) => (
+                {words.map((word, index) => (
                   <div key={index} className="word-example">
                     <span className={`article ${word.article}`}>
                       {word.article}
@@ -84,11 +84,6 @@ const RulesList: React.FC<RulesListProps> = ({ onBack }) => {
                     )}
                   </div>
                 ))}
-                {words.length > 10 && (
-                  <div className="more-words">
-                    ... и еще {words.length - 10} слов
-                  </div>
-                )}
               </div>
             </div>
           );
@@ -111,7 +106,7 @@ const RulesList: React.FC<RulesListProps> = ({ onBack }) => {
       <main className="rules-main">
         <div className="rules-categories">
           <CategorySection
-            title={t("famale")}
+            title={t("female")}
             ruleIds={ruleCategories.female}
             className="die"
           />

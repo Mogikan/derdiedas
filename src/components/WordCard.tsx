@@ -17,7 +17,7 @@ const WordCard: React.FC<WordCardProps> = ({
   showResult,
   answeredCorrectly,
 }) => {
-  const { i18n, t } = useTranslation();
+  const { i18n, t } = useTranslation(["translation", "rule"]);
   const currentLang = i18n.language;
   const translation =
     word.translations[currentLang] || word.translations["en"] || word.word;

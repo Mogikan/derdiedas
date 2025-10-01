@@ -1115,3 +1115,50 @@ body {
   opacity: 0.5;
   cursor: not-allowed;
 }
+
+
+/* Language Switcher */
+.language-switcher {
+  display: flex;
+  gap: 4px;
+  margin: 0 0 12px 0;
+  flex-wrap: wrap;
+}
+
+.lang-btn {
+  width: 36px;
+  height: 28px;
+  font-size: 12px;
+  font-weight: 600;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background: #f8f9fa;
+  color: #495057;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lang-btn:hover {
+  background: #e9ecef;
+  border-color: #adb5bd;
+}
+
+.lang-btn.active {
+  background: #0d6efd;
+  color: white;
+  border-color: #0d6efd;
+  box-shadow: 0 2px 4px rgba(13, 110, 253, 0.3);
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .lang-btn {
+    width: 32px;
+    height: 26px;
+    font-size: 10px;
+  }
+}

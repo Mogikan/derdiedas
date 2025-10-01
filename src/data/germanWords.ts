@@ -3555,7 +3555,2351 @@ const GERMAN_WORDS_DATA: GermanWord[] = [
     },
     ruleId: 'verb-derived-no-suffix',
     isException: false
-  }
+  },
+  {
+  word: "Montag",
+  article: "der",
+  translations: {
+    en: "Monday",
+    ru: "понедельник",
+    de: "Montag",
+    es: "lunes",
+    fr: "lundi",
+    ja: "月曜日",
+    zh: "星期一",
+    pt: "segunda-feira",
+    ko: "월요일",
+    ar: "الاثنين",
+    hi: "सोमवार"
+  },
+  ruleId: 'days-months-seasons',
+  isException: false
+},
+{
+  word: "Juli",
+  article: "der",
+  translations: {
+    en: "July",
+    ru: "июль",
+    de: "Juli",
+    es: "julio",
+    fr: "juillet",
+    ja: "7月",
+    zh: "七月",
+    pt: "julho",
+    ko: "7월",
+    ar: "يوليو",
+    hi: "जुलाई"
+  },
+  ruleId: 'days-months-seasons',
+  isException: false
+},
+{
+  word: "Dezember",
+  article: "der",
+  translations: {
+    en: "December",
+    ru: "декабрь",
+    de: "Dezember",
+    es: "diciembre",
+    fr: "décembre",
+    ja: "12月",
+    zh: "十二月",
+    pt: "dezembro",
+    ko: "12월",
+    ar: "ديسمبر",
+    hi: "दिसंबर"
+  },
+  ruleId: 'days-months-seasons',
+  isException: false
+},
+{
+  word: "Herbst",
+  article: "der",
+  translations: {
+    en: "autumn",
+    ru: "осень",
+    de: "Herbst",
+    es: "otoño",
+    fr: "automne",
+    ja: "秋",
+    zh: "秋天",
+    pt: "outono",
+    ko: "가을",
+    ar: "خريف",
+    hi: "पतझड़"
+  },
+  ruleId: 'days-months-seasons',
+  isException: false
+},
+{
+  word: "Regen",
+  article: "der",
+  translations: {
+    en: "rain",
+    ru: "дождь",
+    de: "Regen",
+    es: "lluvia",
+    fr: "pluie",
+    ja: "雨",
+    zh: "雨",
+    pt: "chuva",
+    ko: "비",
+    ar: "مطر",
+    hi: "बारिश"
+  },
+  ruleId: 'weather-phenomena',
+  isException: false
+},
+{
+  word: "Schnee",
+  article: "der",
+  translations: {
+    en: "snow",
+    ru: "снег",
+    de: "Schnee",
+    es: "nieve",
+    fr: "neige",
+    ja: "雪",
+    zh: "雪",
+    pt: "neve",
+    ko: "눈",
+    ar: "ثلج",
+    hi: "बर्फ"
+  },
+  ruleId: 'weather-phenomena',
+  isException: false
+},
+{
+  word: "Wind",
+  article: "der",
+  translations: {
+    en: "wind",
+    ru: "ветер",
+    de: "Wind",
+    es: "viento",
+    fr: "vent",
+    ja: "風",
+    zh: "风",
+    pt: "vento",
+    ko: "바람",
+    ar: "رياح",
+    hi: "हवा"
+  },
+  ruleId: 'weather-phenomena',
+  isException: false
+},
+{
+  word: "Blitz",
+  article: "der",
+  translations: {
+    en: "lightning",
+    ru: "молния",
+    de: "Blitz",
+    es: "relámpago",
+    fr: "éclair",
+    ja: "稲妻",
+    zh: "闪电",
+    pt: "relâmpago",
+    ko: "번개",
+    ar: "برق",
+    hi: "बिजली"
+  },
+  ruleId: 'weather-phenomena',
+  isException: false
+},
+{
+  word: "Nebel",
+  article: "der",
+  translations: {
+    en: "fog",
+    ru: "туман",
+    de: "Nebel",
+    es: "niebla",
+    fr: "brouillard",
+    ja: "霧",
+    zh: "雾",
+    pt: "nevoeiro",
+    ko: "안개",
+    ar: "ضباب",
+    hi: "कोहरा"
+  },
+  ruleId: 'weather-phenomena',
+  isException: false
+},
+{
+  word: "Wein",
+  article: "der",
+  translations: {
+    en: "wine",
+    ru: "вино",
+    de: "Wein",
+    es: "vino",
+    fr: "vin",
+    ja: "ワイン",
+    zh: "葡萄酒",
+    pt: "vinho",
+    ko: "와인",
+    ar: "نبيذ",
+    hi: "शराब"
+  },
+  ruleId: 'alcoholic-drinks',
+  isException: false
+},
+{
+  word: "Whisky",
+  article: "der",
+  translations: {
+    en: "whisky",
+    ru: "виски",
+    de: "Whisky",
+    es: "whisky",
+    fr: "whisky",
+    ja: "ウイスキー",
+    zh: "威士忌",
+    pt: "uísque",
+    ko: "위스키",
+    ar: "ويسكي",
+    hi: "व्हिस्की"
+  },
+  ruleId: 'alcoholic-drinks',
+  isException: false
+},
+{
+  word: "Wodka",
+  article: "der",
+  translations: {
+    en: "vodka",
+    ru: "водка",
+    de: "Wodka",
+    es: "vodka",
+    fr: "vodka",
+    ja: "ウォッカ",
+    zh: "伏特加",
+    pt: "vodka",
+    ko: "보드카",
+    ar: "فودكا",
+    hi: "वोदका"
+  },
+  ruleId: 'alcoholic-drinks',
+  isException: false
+},
+{
+  word: "Sekt",
+  article: "der",
+  translations: {
+    en: "sparkling wine",
+    ru: "игристое",
+    de: "Sekt",
+    es: "vino espumoso",
+    fr: "vin mousseux",
+    ja: "スパークリングワイン",
+    zh: "起泡酒",
+    pt: "vinho espumante",
+    ko: "스파클링 와인",
+    ar: "نبيذ فوار",
+    hi: "स्पार्कलिंग वाइन"
+  },
+  ruleId: 'alcoholic-drinks',
+  isException: false
+},
+{
+  word: "Rum",
+  article: "der",
+  translations: {
+    en: "rum",
+    ru: "ром",
+    de: "Rum",
+    es: "ron",
+    fr: "rhum",
+    ja: "ラム",
+    zh: "朗姆酒",
+    pt: "rum",
+    ko: "럼",
+    ar: "رم",
+    hi: "रम"
+  },
+  ruleId: 'alcoholic-drinks',
+  isException: false
+},
+{
+  word: "Norden",
+  article: "der",
+  translations: {
+    en: "north",
+    ru: "север",
+    de: "Norden",
+    es: "norte",
+    fr: "nord",
+    ja: "北",
+    zh: "北",
+    pt: "norte",
+    ko: "북쪽",
+    ar: "شمال",
+    hi: "उत्तर"
+  },
+  ruleId: 'cardinal-directions',
+  isException: false
+},
+{
+  word: "Süden",
+  article: "der",
+  translations: {
+    en: "south",
+    ru: "юг",
+    de: "Süden",
+    es: "sur",
+    fr: "sud",
+    ja: "南",
+    zh: "南",
+    pt: "sul",
+    ko: "남쪽",
+    ar: "جنوب",
+    hi: "दक्षिण"
+  },
+  ruleId: 'cardinal-directions',
+  isException: false
+},
+{
+  word: "Osten",
+  article: "der",
+  translations: {
+    en: "east",
+    ru: "восток",
+    de: "Osten",
+    es: "este",
+    fr: "est",
+    ja: "東",
+    zh: "东",
+    pt: "leste",
+    ko: "동쪽",
+    ar: "شرق",
+    hi: "पूर्व"
+  },
+  ruleId: 'cardinal-directions',
+  isException: false
+},
+{
+  word: "Westen",
+  article: "der",
+  translations: {
+    en: "west",
+    ru: "запад",
+    de: "Westen",
+    es: "oeste",
+    fr: "ouest",
+    ja: "西",
+    zh: "西",
+    pt: "oeste",
+    ko: "서쪽",
+    ar: "غرب",
+    hi: "पश्चिम"
+  },
+  ruleId: 'cardinal-directions',
+  isException: false
+},
+{
+  word: "Nordwesten",
+  article: "der",
+  translations: {
+    en: "northwest",
+    ru: "северо-запад",
+    de: "Nordwesten",
+    es: "noroeste",
+    fr: "nord-ouest",
+    ja: "北西",
+    zh: "西北",
+    pt: "noroeste",
+    ko: "북서쪽",
+    ar: "شمال غرب",
+    hi: "उत्तर पश्चिम"
+  },
+  ruleId: 'cardinal-directions',
+  isException: false
+},
+{
+  word: "BMW",
+  article: "der",
+  translations: {
+    en: "BMW",
+    ru: "БМВ",
+    de: "BMW",
+    es: "BMW",
+    fr: "BMW",
+    ja: "BMW",
+    zh: "宝马",
+    pt: "BMW",
+    ko: "BMW",
+    ar: "بي إم دبليو",
+    hi: "बीएमडब्ल्यू"
+  },
+  ruleId: 'car-brands',
+  isException: false
+},
+{
+  word: "Mercedes",
+  article: "der",
+  translations: {
+    en: "Mercedes",
+    ru: "Мерседес",
+    de: "Mercedes",
+    es: "Mercedes",
+    fr: "Mercedes",
+    ja: "メルセデス",
+    zh: "梅赛德斯",
+    pt: "Mercedes",
+    ko: "메르세데스",
+    ar: "مرسيدس",
+    hi: "मर्सिडीज़"
+  },
+  ruleId: 'car-brands',
+  isException: false
+},
+{
+  word: "Toyota",
+  article: "der",
+  translations: {
+    en: "Toyota",
+    ru: "Тойота",
+    de: "Toyota",
+    es: "Toyota",
+    fr: "Toyota",
+    ja: "トヨタ",
+    zh: "丰田",
+    pt: "Toyota",
+    ko: "도요타",
+    ar: "تويوتا",
+    hi: "टोयोटा"
+  },
+  ruleId: 'car-brands',
+  isException: false
+},
+{
+  word: "Volkswagen",
+  article: "der",
+  translations: {
+    en: "Volkswagen",
+    ru: "Фольксваген",
+    de: "Volkswagen",
+    es: "Volkswagen",
+    fr: "Volkswagen",
+    ja: "フォルクスワーゲン",
+    zh: "大众",
+    pt: "Volkswagen",
+    ko: "폭스바겐",
+    ar: "فولكس فاجن",
+    hi: "फोल्क्सवैगन"
+  },
+  ruleId: 'car-brands',
+  isException: false
+},
+{
+  word: "Audi",
+  article: "der",
+  translations: {
+    en: "Audi",
+    ru: "Ауди",
+    de: "Audi",
+    es: "Audi",
+    fr: "Audi",
+    ja: "アウディ",
+    zh: "奥迪",
+    pt: "Audi",
+    ko: "아우디",
+    ar: "أودي",
+    hi: "ऑडी"
+  },
+  ruleId: 'car-brands',
+  isException: false
+},
+{
+  word: "Harley Davidson",
+  article: "die",
+  translations: {
+    en: "Harley Davidson",
+    ru: "Харлей Дэвидсон",
+    de: "Harley Davidson",
+    es: "Harley Davidson",
+    fr: "Harley Davidson",
+    ja: "ハーレーダビッドソン",
+    zh: "哈雷戴维森",
+    pt: "Harley Davidson",
+    ko: "할리데이비슨",
+    ar: "هارلي ديفيدسون",
+    hi: "हार्ले डेविडसन"
+  },
+  ruleId: 'motorcycle-brands',
+  isException: false
+},
+{
+  word: "Suzuki",
+  article: "die",
+  translations: {
+    en: "Suzuki",
+    ru: "Сузуки",
+    de: "Suzuki",
+    es: "Suzuki",
+    fr: "Suzuki",
+    ja: "スズキ",
+    zh: "铃木",
+    pt: "Suzuki",
+    ko: "스즈키",
+    ar: "سوزوكي",
+    hi: "सुज़ुकी"
+  },
+  ruleId: 'motorcycle-brands',
+  isException: false
+},
+{
+  word: "Triumph",
+  article: "die",
+  translations: {
+    en: "Triumph",
+    ru: "Триумф",
+    de: "Triumph",
+    es: "Triumph",
+    fr: "Triumph",
+    ja: "トライアンフ",
+    zh: "凯旋",
+    pt: "Triumph",
+    ko: "트라이엄프",
+    ar: "تريومف",
+    hi: "ट्रायम्फ"
+  },
+  ruleId: 'motorcycle-brands',
+  isException: false
+},
+{
+  word: "Yamaha",
+  article: "die",
+  translations: {
+    en: "Yamaha",
+    ru: "Ямаха",
+    de: "Yamaha",
+    es: "Yamaha",
+    fr: "Yamaha",
+    ja: "ヤマハ",
+    zh: "雅马哈",
+    pt: "Yamaha",
+    ko: "야마하",
+    ar: "ياماها",
+    hi: "यामाहा"
+  },
+  ruleId: 'motorcycle-brands',
+  isException: false
+},
+{
+  word: "Ducati",
+  article: "die",
+  translations: {
+    en: "Ducati",
+    ru: "Дукати",
+    de: "Ducati",
+    es: "Ducati",
+    fr: "Ducati",
+    ja: "ドゥカティ",
+    zh: "杜卡迪",
+    pt: "Ducati",
+    ko: "두카티",
+    ar: "دوكاتي",
+    hi: "डुकाटी"
+  },
+  ruleId: 'motorcycle-brands',
+  isException: false
+},
+{
+  word: "Everest",
+  article: "der",
+  translations: {
+    en: "Everest",
+    ru: "Эверест",
+    de: "Everest",
+    es: "Everest",
+    fr: "Everest",
+    ja: "エベレスト",
+    zh: "珠穆朗玛峰",
+    pt: "Everest",
+    ko: "에베레스트",
+    ar: "إيفرست",
+    hi: "एवरेस्ट"
+  },
+  ruleId: 'mountains',
+  isException: false
+},
+{
+  word: "Himalaya",
+  article: "der",
+  translations: {
+    en: "Himalayas",
+    ru: "Гималаи",
+    de: "Himalaya",
+    es: "Himalaya",
+    fr: "Himalaya",
+    ja: "ヒマラヤ",
+    zh: "喜马拉雅山",
+    pt: "Himalaia",
+    ko: "히말라야",
+    ar: "الهيمالايا",
+    hi: "हिमालय"
+  },
+  ruleId: 'mountains',
+  isException: false
+},
+{
+  word: "Harz",
+  article: "der",
+  translations: {
+    en: "Harz",
+    ru: "Гарц",
+    de: "Harz",
+    es: "Harz",
+    fr: "Harz",
+    ja: "ハルツ",
+    zh: "哈尔茨",
+    pt: "Harz",
+    ko: "하르츠",
+    ar: "هارز",
+    hi: "हार्ज़"
+  },
+  ruleId: 'mountains',
+  isException: false
+},
+{
+  word: "Kilimandscharo",
+  article: "der",
+  translations: {
+    en: "Kilimanjaro",
+    ru: "Килиманджаро",
+    de: "Kilimandscharo",
+    es: "Kilimanjaro",
+    fr: "Kilimandjaro",
+    ja: "キリマンジャロ",
+    zh: "乞力马扎罗山",
+    pt: "Kilimanjaro",
+    ko: "킬리만자로",
+    ar: "كليمنجارو",
+    hi: "किलिमंजारो"
+  },
+  ruleId: 'mountains',
+  isException: false
+},
+{
+  word: "Fuji",
+  article: "der",
+  translations: {
+    en: "Fuji",
+    ru: "Фудзияма",
+    de: "Fuji",
+    es: "Fuji",
+    fr: "Fuji",
+    ja: "富士山",
+    zh: "富士山",
+    pt: "Fuji",
+    ko: "후지산",
+    ar: "فوجي",
+    hi: "फ़ुजी"
+  },
+  ruleId: 'mountains',
+  isException: false
+},
+{
+  word: "Donau",
+  article: "die",
+  translations: {
+    en: "Danube",
+    ru: "Дунай",
+    de: "Donau",
+    es: "Danubio",
+    fr: "Danube",
+    ja: "ドナウ川",
+    zh: "多瑙河",
+    pt: "Danúbio",
+    ko: "도나우강",
+    ar: "دانوب",
+    hi: "डैन्यूब"
+  },
+  ruleId: 'rivers-inside-germany',
+  isException: false
+},
+{
+  word: "Mosel",
+  article: "die",
+  translations: {
+    en: "Moselle",
+    ru: "Мозель",
+    de: "Mosel",
+    es: "Mosela",
+    fr: "Moselle",
+    ja: "モーゼル川",
+    zh: "摩泽尔河",
+    pt: "Mosela",
+    ko: "모젤강",
+    ar: "موزل",
+    hi: "मोसेल"
+  },
+  ruleId: 'rivers-inside-germany',
+  isException: false
+},
+{
+  word: "Spree",
+  article: "die",
+  translations: {
+    en: "Spree",
+    ru: "Шпрее",
+    de: "Spree",
+    es: "Spree",
+    fr: "Spree",
+    ja: "シュプレー川",
+    zh: "施普雷河",
+    pt: "Spree",
+    ko: "슈프레강",
+    ar: "شبريه",
+    hi: "स्प्री"
+  },
+  ruleId: 'rivers-inside-germany',
+  isException: false
+},
+{
+  word: "Elbe",
+  article: "die",
+  translations: {
+    en: "Elbe",
+    ru: "Эльба",
+    de: "Elbe",
+    es: "Elba",
+    fr: "Elbe",
+    ja: "エルベ川",
+    zh: "易北河",
+    pt: "Elba",
+    ko: "엘베강",
+    ar: "إلبه",
+    hi: "एल्बे"
+  },
+  ruleId: 'rivers-inside-germany',
+  isException: false
+},
+{
+  word: "Oder",
+  article: "die",
+  translations: {
+    en: "Oder",
+    ru: "Одер",
+    de: "Oder",
+    es: "Oder",
+    fr: "Oder",
+    ja: "オーデル川",
+    zh: "奥得河",
+    pt: "Oder",
+    ko: "오데르강",
+    ar: "أودر",
+    hi: "ओदेर"
+  },
+  ruleId: 'rivers-inside-germany',
+  isException: false
+},
+{
+  word: "Newa",
+  article: "die",
+  translations: {
+    en: "Neva",
+    ru: "Нева",
+    de: "Newa",
+    es: "Neva",
+    fr: "Neva",
+    ja: "ネヴァ川",
+    zh: "涅瓦河",
+    pt: "Neva",
+    ko: "네파강",
+    ar: "نيفا",
+    hi: "नेवा"
+  },
+  ruleId: 'rivers-outside-germany',
+  isException: false
+},
+{
+  word: "Seine",
+  article: "die",
+  translations: {
+    en: "Seine",
+    ru: "Сена",
+    de: "Seine",
+    es: "Sena",
+    fr: "Seine",
+    ja: "セーヌ川",
+    zh: "塞纳河",
+    pt: "Sena",
+    ko: "센강",
+    ar: "السين",
+    hi: "सेन"
+  },
+  ruleId: 'rivers-outside-germany',
+  isException: false
+},
+{
+  word: "Themse",
+  article: "die",
+  translations: {
+    en: "Thames",
+    ru: "Темза",
+    de: "Themse",
+    es: "Támesis",
+    fr: "Tamise",
+    ja: "テムズ川",
+    zh: "泰晤士河",
+    pt: "Tamisa",
+    ko: "템스강",
+    ar: "التايمز",
+    hi: "थेम्स"
+  },
+  ruleId: 'rivers-outside-germany',
+  isException: false
+},
+{
+  word: "Don",
+  article: "der",
+  translations: {
+    en: "Don",
+    ru: "Дон",
+    de: "Don",
+    es: "Don",
+    fr: "Don",
+    ja: "ドン川",
+    zh: "顿河",
+    pt: "Don",
+    ko: "돈강",
+    ar: "دون",
+    hi: "डॉन"
+  },
+  ruleId: 'exceptions-der',
+  isException: true,
+  exceptionTo: 'rivers-outside-germany'
+},
+{
+  word: "Tomate",
+  article: "die",
+  translations: {
+    en: "tomato",
+    ru: "помидор",
+    de: "Tomate",
+    es: "tomate",
+    fr: "tomate",
+    ja: "トマト",
+    zh: "番茄",
+    pt: "tomate",
+    ko: "토마토",
+    ar: "طماطم",
+    hi: "टमाटर"
+  },
+  ruleId: 'flowers-fruits-vegetables',
+  isException: false
+},
+{
+  word: "Gurke",
+  article: "die",
+  translations: {
+    en: "cucumber",
+    ru: "огурец",
+    de: "Gurke",
+    es: "pepino",
+    fr: "concombre",
+    ja: "キュウリ",
+    zh: "黄瓜",
+    pt: "pepino",
+    ko: "오이",
+    ar: "خيار",
+    hi: "खीरा"
+  },
+  ruleId: 'flowers-fruits-vegetables',
+  isException: false
+},
+{
+  word: "Rose",
+  article: "die",
+  translations: {
+    en: "rose",
+    ru: "роза",
+    de: "Rose",
+    es: "rosa",
+    fr: "rose",
+    ja: "バラ",
+    zh: "玫瑰",
+    pt: "rosa",
+    ko: "장미",
+    ar: "وردة",
+    hi: "गुलाब"
+  },
+  ruleId: 'flowers-fruits-vegetables',
+  isException: false
+},
+{
+  word: "Apfelsine",
+  article: "die",
+  translations: {
+    en: "orange",
+    ru: "апельсин",
+    de: "Apfelsine",
+    es: "naranja",
+    fr: "orange",
+    ja: "オレンジ",
+    zh: "橙子",
+    pt: "laranja",
+    ko: "오렌지",
+    ar: "برتقال",
+    hi: "संतरा"
+  },
+  ruleId: 'flowers-fruits-vegetables',
+  isException: false
+},
+{
+  word: "Zeder",
+  article: "die",
+  translations: {
+    en: "cedar",
+    ru: "кедр",
+    de: "Zeder",
+    es: "cedro",
+    fr: "cèdre",
+    ja: "杉",
+    zh: "雪松",
+    pt: "cedro",
+    ko: "삼나무",
+    ar: "أرز",
+    hi: "देवदार"
+  },
+  ruleId: 'flowers-fruits-vegetables',
+  isException: false
+},
+{
+  word: "Mann",
+  article: "der",
+  translations: {
+    en: "man",
+    ru: "мужчина",
+    de: "Mann",
+    es: "hombre",
+    fr: "homme",
+    ja: "男",
+    zh: "男人",
+    pt: "homem",
+    ko: "남자",
+    ar: "رجل",
+    hi: "आदमी"
+  },
+  ruleId: 'male-persons',
+  isException: false
+},
+{
+  word: "Vater",
+  article: "der",
+  translations: {
+    en: "father",
+    ru: "отец",
+    de: "Vater",
+    es: "padre",
+    fr: "père",
+    ja: "父",
+    zh: "父亲",
+    pt: "pai",
+    ko: "아버지",
+    ar: "أب",
+    hi: "पिता"
+  },
+  ruleId: 'male-persons',
+  isException: false
+},
+{
+  word: "Arzt",
+  article: "der",
+  translations: {
+    en: "doctor",
+    ru: "врач",
+    de: "Arzt",
+    es: "médico",
+    fr: "médecin",
+    ja: "医者",
+    zh: "医生",
+    pt: "médico",
+    ko: "의사",
+    ar: "طبيب",
+    hi: "डॉक्टर"
+  },
+  ruleId: 'male-persons',
+  isException: false
+},
+{
+  word: "Ingenieur",
+  article: "der",
+  translations: {
+    en: "engineer",
+    ru: "инженер",
+    de: "Ingenieur",
+    es: "ingeniero",
+    fr: "ingénieur",
+    ja: "エンジニア",
+    zh: "工程师",
+    pt: "engenheiro",
+    ko: "엔지니어",
+    ar: "مهندس",
+    hi: "इंजीनियर"
+  },
+  ruleId: 'male-persons',
+  isException: false
+},
+{
+  word: "Bruder",
+  article: "der",
+  translations: {
+    en: "brother",
+    ru: "брат",
+    de: "Bruder",
+    es: "hermano",
+    fr: "frère",
+    ja: "兄弟",
+    zh: "兄弟",
+    pt: "irmão",
+    ko: "형제",
+    ar: "أخ",
+    hi: "भाई"
+  },
+  ruleId: 'male-persons',
+  isException: false
+},
+{
+  word: "Frau",
+  article: "die",
+  translations: {
+    en: "woman",
+    ru: "женщина",
+    de: "Frau",
+    es: "mujer",
+    fr: "femme",
+    ja: "女性",
+    zh: "女人",
+    pt: "mulher",
+    ko: "여자",
+    ar: "امرأة",
+    hi: "महिला"
+  },
+  ruleId: 'female-persons',
+  isException: false
+},
+{
+  word: "Mutter",
+  article: "die",
+  translations: {
+    en: "mother",
+    ru: "мать",
+    de: "Mutter",
+    es: "madre",
+    fr: "mère",
+    ja: "母",
+    zh: "母亲",
+    pt: "mãe",
+    ko: "어머니",
+    ar: "أم",
+    hi: "माँ"
+  },
+  ruleId: 'female-persons',
+  isException: false
+},
+{
+  word: "Ärztin",
+  article: "die",
+  translations: {
+    en: "female doctor",
+    ru: "врач (жен.)",
+    de: "Ärztin",
+    es: "médica",
+    fr: "médecin femme",
+    ja: "女医",
+    zh: "女医生",
+    pt: "médica",
+    ko: "여의사",
+    ar: "طبيبة",
+    hi: "महिला डॉक्टर"
+  },
+  ruleId: 'female-persons',
+  isException: false
+},
+{
+  word: "Lehrerin",
+  article: "die",
+  translations: {
+    en: "female teacher",
+    ru: "учительница",
+    de: "Lehrerin",
+    es: "profesora",
+    fr: "enseignante",
+    ja: "女性教師",
+    zh: "女教师",
+    pt: "professora",
+    ko: "여선생님",
+    ar: "مدرسة",
+    hi: "शिक्षिका"
+  },
+  ruleId: 'female-persons',
+  isException: false
+},
+{
+  word: "Schwester",
+  article: "die",
+  translations: {
+    en: "sister",
+    ru: "сестра",
+    de: "Schwester",
+    es: "hermana",
+    fr: "sœur",
+    ja: "姉妹",
+    zh: "姐妹",
+    pt: "irmã",
+    ko: "자매",
+    ar: "أخت",
+    hi: "बहन"
+  },
+  ruleId: 'female-persons',
+  isException: false
+},
+{
+  word: "Boeing",
+  article: "die",
+  translations: {
+    en: "Boeing",
+    ru: "Боинг",
+    de: "Boeing",
+    es: "Boeing",
+    fr: "Boeing",
+    ja: "ボーイング",
+    zh: "波音",
+    pt: "Boeing",
+    ko: "보잉",
+    ar: "بوينغ",
+    hi: "बोइंग"
+  },
+  ruleId: 'ships-airplanes',
+  isException: false
+},
+{
+  word: "Concorde",
+  article: "die",
+  translations: {
+    en: "Concorde",
+    ru: "Конкорд",
+    de: "Concorde",
+    es: "Concorde",
+    fr: "Concorde",
+    ja: "コンコルド",
+    zh: "协和式飞机",
+    pt: "Concorde",
+    ko: "콘코르드",
+    ar: "كونكورد",
+    hi: "कॉन्कॉर्ड"
+  },
+  ruleId: 'ships-airplanes',
+  isException: false
+},
+{
+  word: "Titanic",
+  article: "die",
+  translations: {
+    en: "Titanic",
+    ru: "Титаник",
+    de: "Titanic",
+    es: "Titanic",
+    fr: "Titanic",
+    ja: "タイタニック",
+    zh: "泰坦尼克号",
+    pt: "Titanic",
+    ko: "타이타닉",
+    ar: "تايتانيك",
+    hi: "टाइटैनिक"
+  },
+  ruleId: 'ships-airplanes',
+  isException: false
+},
+{
+  word: "Gorch Fock",
+  article: "die",
+  translations: {
+    en: "Gorch Fock",
+    ru: "Горх Фок",
+    de: "Gorch Fock",
+    es: "Gorch Fock",
+    fr: "Gorch Fock",
+    ja: "ゴルヒ・フォック",
+    zh: "戈尔希·福克号",
+    pt: "Gorch Fock",
+    ko: "고르히 포크",
+    ar: "غورش فوك",
+    hi: "गोर्च फॉक"
+  },
+  ruleId: 'ships-airplanes',
+  isException: false
+},
+{
+  word: "Queen Mary",
+  article: "die",
+  translations: {
+    en: "Queen Mary",
+    ru: "Куин Мэри",
+    de: "Queen Mary",
+    es: "Queen Mary",
+    fr: "Queen Mary",
+    ja: "クイーン・メリー",
+    zh: "玛丽皇后号",
+    pt: "Queen Mary",
+    ko: "퀸 메리",
+    ar: "كوين ماري",
+    hi: "क्वीन मैरी"
+  },
+  ruleId: 'ships-airplanes',
+  isException: false
+},
+{
+  word: "Eins",
+  article: "die",
+  translations: {
+    en: "one",
+    ru: "один",
+    de: "Eins",
+    es: "uno",
+    fr: "un",
+    ja: "一",
+    zh: "一",
+    pt: "um",
+    ko: "하나",
+    ar: "واحد",
+    hi: "एक"
+  },
+  ruleId: 'cardinal-numbers',
+  isException: false
+},
+{
+  word: "Drei",
+  article: "die",
+  translations: {
+    en: "three",
+    ru: "три",
+    de: "Drei",
+    es: "tres",
+    fr: "trois",
+    ja: "三",
+    zh: "三",
+    pt: "três",
+    ko: "셋",
+    ar: "ثلاثة",
+    hi: "तीन"
+  },
+  ruleId: 'cardinal-numbers',
+  isException: false
+},
+{
+  word: "Sieben",
+  article: "die",
+  translations: {
+    en: "seven",
+    ru: "семь",
+    de: "Sieben",
+    es: "siete",
+    fr: "sept",
+    ja: "七",
+    zh: "七",
+    pt: "sete",
+    ko: "일곱",
+    ar: "سبعة",
+    hi: "सात"
+  },
+  ruleId: 'cardinal-numbers',
+  isException: false
+},
+{
+  word: "Neun",
+  article: "die",
+  translations: {
+    en: "nine",
+    ru: "девять",
+    de: "Neun",
+    es: "nueve",
+    fr: "neuf",
+    ja: "九",
+    zh: "九",
+    pt: "nove",
+    ko: "아홉",
+    ar: "تسعة",
+    hi: "नौ"
+  },
+  ruleId: 'cardinal-numbers',
+  isException: false
+},
+{
+  word: "Million",
+  article: "die",
+  translations: {
+    en: "million",
+    ru: "миллион",
+    de: "Million",
+    es: "millón",
+    fr: "million",
+    ja: "百万",
+    zh: "百万",
+    pt: "milhão",
+    ko: "백만",
+    ar: "مليون",
+    hi: "मिलियन"
+  },
+  ruleId: 'cardinal-numbers',
+  isException: false
+},
+{
+  word: "Sonne",
+  article: "die",
+  translations: {
+    en: "sun",
+    ru: "солнце",
+    de: "Sonne",
+    es: "sol",
+    fr: "soleil",
+    ja: "太陽",
+    zh: "太阳",
+    pt: "sol",
+    ko: "태양",
+    ar: "شمس",
+    hi: "सूरज"
+  },
+  ruleId: 'exceptions-die',
+  isException: true
+},
+{
+  word: "Erde",
+  article: "die",
+  translations: {
+    en: "earth",
+    ru: "земля",
+    de: "Erde",
+    es: "tierra",
+    fr: "terre",
+    ja: "地球",
+    zh: "地球",
+    pt: "terra",
+    ko: "지구",
+    ar: "أرض",
+    hi: "पृथ्वी"
+  },
+  ruleId: 'exceptions-die',
+  isException: true
+},
+{
+  word: "Butter",
+  article: "die",
+  translations: {
+    en: "butter",
+    ru: "масло",
+    de: "Butter",
+    es: "mantequilla",
+    fr: "beurre",
+    ja: "バター",
+    zh: "黄油",
+    pt: "manteiga",
+    ko: "버터",
+    ar: "زبدة",
+    hi: "मक्खन"
+  },
+  ruleId: 'exceptions-die',
+  isException: true,
+  exceptionTo: 'endings-er'
+},
+{
+  word: "Tochter",
+  article: "die",
+  translations: {
+    en: "daughter",
+    ru: "дочь",
+    de: "Tochter",
+    es: "hija",
+    fr: "fille",
+    ja: "娘",
+    zh: "女儿",
+    pt: "filha",
+    ko: "딸",
+    ar: "ابنة",
+    hi: "बेटी"
+  },
+  ruleId: 'exceptions-die',
+  isException: true
+},
+{
+  word: "Woche",
+  article: "die",
+  translations: {
+    en: "week",
+    ru: "неделя",
+    de: "Woche",
+    es: "semana",
+    fr: "semaine",
+    ja: "週間",
+    zh: "周",
+    pt: "semana",
+    ko: "주",
+    ar: "أسبوع",
+    hi: "सप्ताह"
+  },
+  ruleId: 'exceptions-die',
+  isException: true,
+  exceptionTo: 'days-months-seasons'
+},
+{
+  word: "Alpen",
+  article: "die",
+  translations: {
+    en: "Alps",
+    ru: "Альпы",
+    de: "Alpen",
+    es: "Alpes",
+    fr: "Alpes",
+    ja: "アルプス",
+    zh: "阿尔卑斯山",
+    pt: "Alpes",
+    ko: "알프스",
+    ar: "الألب",
+    hi: "एल्प्स"
+  },
+  ruleId: 'exceptions-die',
+  isException: true,
+  exceptionTo: 'mountains'
+},
+{
+  word: "Anden",
+  article: "die",
+  translations: {
+    en: "Andes",
+    ru: "Анды",
+    de: "Anden",
+    es: "Andes",
+    fr: "Andes",
+    ja: "アンデス",
+    zh: "安第斯山脉",
+    pt: "Andes",
+    ko: "안데스",
+    ar: "أنديز",
+    hi: "एंडीज़"
+  },
+  ruleId: 'exceptions-die',
+  isException: true,
+  exceptionTo: 'mountains'
+},
+{
+  word: "Pyrenäen",
+  article: "die",
+  translations: {
+    en: "Pyrenees",
+    ru: "Пиренеи",
+    de: "Pyrenäen",
+    es: "Pirineos",
+    fr: "Pyrénées",
+    ja: "ピレネー山脈",
+    zh: "比利牛斯山脉",
+    pt: "Pirineus",
+    ko: "피레네 산맥",
+    ar: "البيرينيه",
+    hi: "पिरेनीज़"
+  },
+  ruleId: 'exceptions-die',
+  isException: true,
+  exceptionTo: 'mountains'
+},
+{
+  word: "Kordilleren",
+  article: "die",
+  translations: {
+    en: "Cordilleras",
+    ru: "Кордильеры",
+    de: "Kordilleren",
+    es: "Cordilleras",
+    fr: "Cordillères",
+    ja: "コルディリェラ山脈",
+    zh: "科迪勒拉山系",
+    pt: "Cordilheiras",
+    ko: "코디예라",
+    ar: "كورديليرا",
+    hi: "कॉर्डिलेरा"
+  },
+  ruleId: 'exceptions-die',
+  isException: true,
+  exceptionTo: 'mountains'
+},
+{
+  word: "Hälfte",
+  article: "die",
+  translations: {
+    en: "half",
+    ru: "половина",
+    de: "Hälfte",
+    es: "mitad",
+    fr: "moitié",
+    ja: "半分",
+    zh: "一半",
+    pt: "metade",
+    ko: "절반",
+    ar: "نصف",
+    hi: "आधा"
+  },
+  ruleId: 'exceptions-die',
+  isException: true,
+  exceptionTo: 'fractions'
+},
+{
+  word: "Fenster",
+  article: "das",
+  translations: {
+    en: "window",
+    ru: "окно",
+    de: "Fenster",
+    es: "ventana",
+    fr: "fenêtre",
+    ja: "窓",
+    zh: "窗户",
+    pt: "janela",
+    ko: "창문",
+    ar: "نافذة",
+    hi: "खिड़की"
+  },
+  ruleId: 'exceptions-das',
+  isException: true,
+  exceptionTo: 'endings-er'
+},
+{
+  word: "Wasser",
+  article: "das",
+  translations: {
+    en: "water",
+    ru: "вода",
+    de: "Wasser",
+    es: "agua",
+    fr: "eau",
+    ja: "水",
+    zh: "水",
+    pt: "água",
+    ko: "물",
+    ar: "ماء",
+    hi: "पानी"
+  },
+  ruleId: 'exceptions-das',
+  isException: true,
+  exceptionTo: 'endings-er'
+},
+{
+  word: "Messer",
+  article: "das",
+  translations: {
+    en: "knife",
+    ru: "нож",
+    de: "Messer",
+    es: "cuchillo",
+    fr: "couteau",
+    ja: "ナイフ",
+    zh: "刀",
+    pt: "faca",
+    ko: "칼",
+    ar: "سكين",
+    hi: "चाकू"
+  },
+  ruleId: 'exceptions-das',
+  isException: true,
+  exceptionTo: 'endings-er'
+},
+{
+  word: "Bier",
+  article: "das",
+  translations: {
+    en: "beer",
+    ru: "пиво",
+    de: "Bier",
+    es: "cerveza",
+    fr: "bière",
+    ja: "ビール",
+    zh: "啤酒",
+    pt: "cerveja",
+    ko: "맥주",
+    ar: "بيرة",
+    hi: "बीयर"
+  },
+  ruleId: 'exceptions-das',
+  isException: true,
+  exceptionTo: 'alcoholic-drinks'
+},
+{
+  word: "Kind",
+  article: "das",
+  translations: {
+    en: "child",
+    ru: "ребёнок",
+    de: "Kind",
+    es: "niño",
+    fr: "enfant",
+    ja: "子供",
+    zh: "孩子",
+    pt: "criança",
+    ko: "아이",
+    ar: "طفل",
+    hi: "बच्चा"
+  },
+  ruleId: 'exceptions-das',
+  isException: true
+},
+{
+  word: "Attentat",
+  article: "das",
+  translations: {
+    en: "assassination",
+    ru: "покушение",
+    de: "Attentat",
+    es: "atentado",
+    fr: "attentat",
+    ja: "暗殺",
+    zh: "暗杀",
+    pt: "atentado",
+    ko: "암살",
+    ar: "اغتيال",
+    hi: "हत्या"
+  },
+  ruleId: 'exceptions-das',
+  isException: true,
+  exceptionTo: 'endings-t'
+},
+{
+  word: "Jahr",
+  article: "das",
+  translations: {
+    en: "year",
+    ru: "год",
+    de: "Jahr",
+    es: "año",
+    fr: "année",
+    ja: "年",
+    zh: "年",
+    pt: "ano",
+    ko: "년",
+    ar: "سنة",
+    hi: "साल"
+  },
+  ruleId: 'exceptions-das',
+  isException: true,
+  exceptionTo: 'days-months-seasons'
+},
+{
+  word: "Hundert",
+  article: "das",
+  translations: {
+    en: "hundred",
+    ru: "сто",
+    de: "Hundert",
+    es: "cien",
+    fr: "cent",
+    ja: "百",
+    zh: "百",
+    pt: "cem",
+    ko: "백",
+    ar: "مائة",
+    hi: "सौ"
+  },
+  ruleId: 'exceptions-das',
+  isException: true,
+  exceptionTo: 'cardinal-numbers'
+},
+{
+  word: "Tausend",
+  article: "das",
+  translations: {
+    en: "thousand",
+    ru: "тысяча",
+    de: "Tausend",
+    es: "mil",
+    fr: "mille",
+    ja: "千",
+    zh: "千",
+    pt: "mil",
+    ko: "천",
+    ar: "ألف",
+    hi: "हज़ार"
+  },
+  ruleId: 'exceptions-das',
+  isException: true,
+  exceptionTo: 'cardinal-numbers'
+},
+{
+  word: "Dutzend",
+  article: "das",
+  translations: {
+    en: "dozen",
+    ru: "дюжина",
+    de: "Dutzend",
+    es: "docena",
+    fr: "douzaine",
+    ja: "ダース",
+    zh: "打",
+    pt: "dúzia",
+    ko: "다스",
+    ar: "دزينة",
+    hi: "दर्जन"
+  },
+  ruleId: 'exceptions-das',
+  isException: true,
+  exceptionTo: 'cardinal-numbers'
+},
+{
+  word: "Veilchen",
+  article: "das",
+  translations: {
+    en: "violet",
+    ru: "фиалка",
+    de: "Veilchen",
+    es: "violeta",
+    fr: "violette",
+    ja: "スミレ",
+    zh: "紫罗兰",
+    pt: "violeta",
+    ko: "제비꽃",
+    ar: "بنفسج",
+    hi: "बैंगनी"
+  },
+  ruleId: 'exceptions-das',
+  isException: true,
+  exceptionTo: 'flowers-fruits-vegetables'
+},
+{
+  word: "Vergissmeinnicht",
+  article: "das",
+  translations: {
+    en: "forget-me-not",
+    ru: "незабудка",
+    de: "Vergissmeinnicht",
+    es: "nomeolvides",
+    fr: "myosotis",
+    ja: "ワスレナグサ",
+    zh: "勿忘我",
+    pt: "não-me-esqueças",
+    ko: "물망초",
+    ar: "لا تنساني",
+    hi: "फॉरगेट-मी-नॉट"
+  },
+  ruleId: 'exceptions-das',
+  isException: true,
+  exceptionTo: 'flowers-fruits-vegetables'
+},
+{
+  word: "Stiefmütterchen",
+  article: "das",
+  translations: {
+    en: "pansy",
+    ru: "фиалка трёхцветная",
+    de: "Stiefmütterchen",
+    es: "pensamiento",
+    fr: "pensée",
+    ja: "パンジー",
+    zh: "三色堇",
+    pt: "amor-perfeito",
+    ko: "팬지",
+    ar: "بنفسج ثلاثي الألوان",
+    hi: "पैंसी"
+  },
+  ruleId: 'exceptions-das',
+  isException: true,
+  exceptionTo: 'flowers-fruits-vegetables'
+},
+{
+  word: "Kaffee",
+  article: "der",
+  translations: {
+    en: "coffee",
+    ru: "кофе",
+    de: "Kaffee",
+    es: "café",
+    fr: "café",
+    ja: "コーヒー",
+    zh: "咖啡",
+    pt: "café",
+    ko: "커피",
+    ar: "قهوة",
+    hi: "कॉफी"
+  },
+  ruleId: 'exceptions-der',
+  isException: true
+},
+{
+  word: "Tee",
+  article: "der",
+  translations: {
+    en: "tea",
+    ru: "чай",
+    de: "Tee",
+    es: "té",
+    fr: "thé",
+    ja: "お茶",
+    zh: "茶",
+    pt: "chá",
+    ko: "차",
+    ar: "شاي",
+    hi: "चाय"
+  },
+  ruleId: 'exceptions-der',
+  isException: true
+},
+{
+  word: "Joghurt",
+  article: "der",
+  translations: {
+    en: "yogurt",
+    ru: "йогурт",
+    de: "Joghurt",
+    es: "yogur",
+    fr: "yaourt",
+    ja: "ヨーグルト",
+    zh: "酸奶",
+    pt: "iogurte",
+    ko: "요거트",
+    ar: "لبن زبادي",
+    hi: "दही"
+  },
+  ruleId: 'exceptions-der',
+  isException: true
+},
+{
+  word: "Meter",
+  article: "der",
+  translations: {
+    en: "meter",
+    ru: "метр",
+    de: "Meter",
+    es: "metro",
+    fr: "mètre",
+    ja: "メートル",
+    zh: "米",
+    pt: "metro",
+    ko: "미터",
+    ar: "متر",
+    hi: "मीटर"
+  },
+  ruleId: 'exceptions-der',
+  isException: true
+},
+{
+  word: "Saft",
+  article: "der",
+  translations: {
+    en: "juice",
+    ru: "сок",
+    de: "Saft",
+    es: "zumo",
+    fr: "jus",
+    ja: "ジュース",
+    zh: "果汁",
+    pt: "suco",
+    ko: "주스",
+    ar: "عصير",
+    hi: "रस"
+  },
+  ruleId: 'exceptions-der',
+  isException: true
+},
+{
+  word: "Ahorn",
+  article: "der",
+  translations: {
+    en: "maple",
+    ru: "клён",
+    de: "Ahorn",
+    es: "arce",
+    fr: "érable",
+    ja: "カエデ",
+    zh: "枫树",
+    pt: "bordo",
+    ko: "단풍나무",
+    ar: "قيقب",
+    hi: "मेपल"
+  },
+  ruleId: 'exceptions-der',
+  isException: true,
+  exceptionTo: 'flowers-fruits-vegetables'
+},
+{
+  word: "Mohn",
+  article: "der",
+  translations: {
+    en: "poppy",
+    ru: "мак",
+    de: "Mohn",
+    es: "amapola",
+    fr: "coquelicot",
+    ja: "ケシ",
+    zh: "罂粟",
+    pt: "papoula",
+    ko: "양귀비",
+    ar: "خشخاش",
+    hi: "खसखस"
+  },
+  ruleId: 'exceptions-der',
+  isException: true,
+  exceptionTo: 'flowers-fruits-vegetables'
+},
+{
+  word: "Kürbis",
+  article: "der",
+  translations: {
+    en: "pumpkin",
+    ru: "тыква",
+    de: "Kürbis",
+    es: "calabaza",
+    fr: "citrouille",
+    ja: "カボチャ",
+    zh: "南瓜",
+    pt: "abóbora",
+    ko: "호박",
+    ar: "يقطين",
+    hi: "कद्दू"
+  },
+  ruleId: 'exceptions-der',
+  isException: true,
+  exceptionTo: 'flowers-fruits-vegetables'
+},
+{
+  word: "Rhein",
+  article: "der",
+  translations: {
+    en: "Rhine",
+    ru: "Рейн",
+    de: "Rhein",
+    es: "Rin",
+    fr: "Rhin",
+    ja: "ライン川",
+    zh: "莱茵河",
+    pt: "Reno",
+    ko: "라인강",
+    ar: "راين",
+    hi: "राइन"
+  },
+  ruleId: 'exceptions-der',
+  isException: true,
+  exceptionTo: 'rivers-inside-germany'
+},
+{
+  word: "Nil",
+  article: "der",
+  translations: {
+    en: "Nile",
+    ru: "Нил",
+    de: "Nil",
+    es: "Nilo",
+    fr: "Nil",
+    ja: "ナイル川",
+    zh: "尼罗河",
+    pt: "Nilo",
+    ko: "나일강",
+    ar: "نيل",
+    hi: "नील"
+  },
+  ruleId: 'exceptions-der',
+  isException: true,
+  exceptionTo: 'rivers-outside-germany'
+},
+{
+  word: "Amazonas",
+  article: "der",
+  translations: {
+    en: "Amazon",
+    ru: "Амазонка",
+    de: "Amazonas",
+    es: "Amazonas",
+    fr: "Amazone",
+    ja: "アマゾン川",
+    zh: "亚马逊河",
+    pt: "Amazonas",
+    ko: "아마존강",
+    ar: "أمازون",
+    hi: "अमेज़न"
+  },
+  ruleId: 'exceptions-der',
+  isException: true,
+  exceptionTo: 'rivers-outside-germany'
+},
+{
+  word: "Ganges",
+  article: "der",
+  translations: {
+    en: "Ganges",
+    ru: "Ганг",
+    de: "Ganges",
+    es: "Ganges",
+    fr: "Gange",
+    ja: "ガンジス川",
+    zh: "恒河",
+    pt: "Ganges",
+    ko: "간지스강",
+    ar: "غانج",
+    hi: "गंगा"
+  },
+  ruleId: 'exceptions-der',
+  isException: true,
+  exceptionTo: 'rivers-outside-germany'
+},
+{
+  word: "Main",
+  article: "der",
+  translations: {
+    en: "Main",
+    ru: "Майн",
+    de: "Main",
+    es: "Main",
+    fr: "Main",
+    ja: "マイン川",
+    zh: "美因河",
+    pt: "Main",
+    ko: "마인강",
+    ar: "ماين",
+    hi: "मेन"
+  },
+  ruleId: 'exceptions-der',
+  isException: true,
+  exceptionTo: 'rivers-inside-germany'
+},
+{
+  word: "Neckar",
+  article: "der",
+  translations: {
+    en: "Neckar",
+    ru: "Неккар",
+    de: "Neckar",
+    es: "Neckar",
+    fr: "Neckar",
+    ja: "ネッカー川",
+    zh: "内卡河",
+    pt: "Neckar",
+    ko: "네크카르강",
+    ar: "نكّار",
+    hi: "नेकर"
+  },
+  ruleId: 'exceptions-der',
+  isException: true,
+  exceptionTo: 'rivers-inside-germany'
+},
+{
+  word: "Jordan",
+  article: "der",
+  translations: {
+    en: "Jordan",
+    ru: "Иордан",
+    de: "Jordan",
+    es: "Jordán",
+    fr: "Jourdain",
+    ja: "ヨルダン川",
+    zh: "约旦河",
+    pt: "Jordão",
+    ko: "요르단강",
+    ar: "الأردن",
+    hi: "जॉर्डन"
+  },
+  ruleId: 'exceptions-der',
+  isException: true,
+  exceptionTo: 'rivers-outside-germany'
+},
+{
+  word: "Jangtse",
+  article: "der",
+  translations: {
+    en: "Yangtze",
+    ru: "Янцзы",
+    de: "Jangtse",
+    es: "Yangtsé",
+    fr: "Yangtsé",
+    ja: "揚子江",
+    zh: "长江",
+    pt: "Yangtzé",
+    ko: "양쯔강",
+    ar: "يانغتسي",
+    hi: "यांग्त्ज़ी"
+  },
+  ruleId: 'exceptions-der',
+  isException: true,
+  exceptionTo: 'rivers-outside-germany'
+},
+{
+  word: "Stahl",
+  article: "der",
+  translations: {
+    en: "steel",
+    ru: "сталь",
+    de: "Stahl",
+    es: "acero",
+    fr: "acier",
+    ja: "鋼",
+    zh: "钢",
+    pt: "aço",
+    ko: "강철",
+    ar: "فولاذ",
+    hi: "इस्पात"
+  },
+  ruleId: 'exceptions-der',
+  isException: true,
+  exceptionTo: 'chemical-elements'
+},
+{
+  word: "Phosphor",
+  article: "der",
+  translations: {
+    en: "phosphorus",
+    ru: "фосфор",
+    de: "Phosphor",
+    es: "fósforo",
+    fr: "phosphore",
+    ja: "リン",
+    zh: "磷",
+    pt: "fósforo",
+    ko: "인",
+    ar: "فوسفور",
+    hi: "फॉस्फोरस"
+  },
+  ruleId: 'exceptions-der',
+  isException: true,
+  exceptionTo: 'chemical-elements'
+},
+{
+  word: "Schwefel",
+  article: "der",
+  translations: {
+    en: "sulfur",
+    ru: "сера",
+    de: "Schwefel",
+    es: "azufre",
+    fr: "soufre",
+    ja: "硫黄",
+    zh: "硫",
+    pt: "enxofre",
+    ko: "황",
+    ar: "كبريت",
+    hi: "गंधक"
+  },
+  ruleId: 'exceptions-der',
+  isException: true,
+  exceptionTo: 'chemical-elements'
+},
+{
+  word: "Atlantik",
+  article: "der",
+  translations: {
+    en: "Atlantic",
+    ru: "Атлантический океан",
+    de: "Atlantik",
+    es: "Atlántico",
+    fr: "Atlantique",
+    ja: "大西洋",
+    zh: "大西洋",
+    pt: "Atlântico",
+    ko: "대서양",
+    ar: "أطلسي",
+    hi: "अटलांटिक"
+  },
+  ruleId: 'exceptions-der',
+  isException: true,
+  exceptionTo: 'endings-ik'
+},
+{
+  word: "Pazifik",
+  article: "der",
+  translations: {
+    en: "Pacific",
+    ru: "Тихий океан",
+    de: "Pazifik",
+    es: "Pacífico",
+    fr: "Pacifique",
+    ja: "太平洋",
+    zh: "太平洋",
+    pt: "Pacífico",
+    ko: "태평양",
+    ar: "هادئ",
+    hi: "प्रशांत"
+  },
+  ruleId: 'exceptions-der',
+  isException: true,
+  exceptionTo: 'endings-ik'
+},
+{
+  word: "Irrtum",
+  article: "der",
+  translations: {
+    en: "error",
+    ru: "ошибка",
+    de: "Irrtum",
+    es: "error",
+    fr: "erreur",
+    ja: "誤り",
+    zh: "错误",
+    pt: "erro",
+    ko: "오류",
+    ar: "خطأ",
+    hi: "भूल"
+  },
+  ruleId: 'exceptions-der',
+  isException: true,
+  exceptionTo: 'endings-um'
+},
+{
+  word: "Gedanke",
+  article: "der",
+  translations: {
+    en: "thought",
+    ru: "мысль",
+    de: "Gedanke",
+    es: "pensamiento",
+    fr: "pensée",
+    ja: "考え",
+    zh: "思想",
+    pt: "pensamento",
+    ko: "생각",
+    ar: "فكرة",
+    hi: "विचार"
+  },
+  ruleId: 'exceptions-der',
+  isException: true,
+  exceptionTo: 'prefix-ge'
+},
+{
+  word: "Gesang",
+  article: "der",
+  translations: {
+    en: "singing",
+    ru: "пение",
+    de: "Gesang",
+    es: "canto",
+    fr: "chant",
+    ja: "歌",
+    zh: "歌唱",
+    pt: "canto",
+    ko: "노래",
+    ar: "غناء",
+    hi: "गायन"
+  },
+  ruleId: 'exceptions-der',
+  isException: true,
+  exceptionTo: 'prefix-ge'
+},
+{
+  word: "Geruch",
+  article: "der",
+  translations: {
+    en: "smell",
+    ru: "запах",
+    de: "Geruch",
+    es: "olor",
+    fr: "odeur",
+    ja: "匂い",
+    zh: "气味",
+    pt: "cheiro",
+    ko: "냄새",
+    ar: "رائحة",
+    hi: "गंध"
+  },
+  ruleId: 'exceptions-der',
+  isException: true,
+  exceptionTo: 'prefix-ge'
+},
+{
+  word: "Geschmack",
+  article: "der",
+  translations: {
+    en: "taste",
+    ru: "вкус",
+    de: "Geschmack",
+    es: "sabor",
+    fr: "goût",
+    ja: "味",
+    zh: "味道",
+    pt: "sabor",
+    ko: "맛",
+    ar: "طعم",
+    hi: "स्वाद"
+  },
+  ruleId: 'exceptions-der',
+  isException: true,
+  exceptionTo: 'prefix-ge'
+},
+{
+  word: "Gestank",
+  article: "der",
+  translations: {
+    en: "stench",
+    ru: "вонь",
+    de: "Gestank",
+    es: "hedor",
+    fr: "puanteur",
+    ja: "悪臭",
+    zh: "恶臭",
+    pt: "fedorento",
+    ko: "악취",
+    ar: "نتن",
+    hi: "दुर्गंध"
+  },
+  ruleId: 'exceptions-der',
+  isException: true,
+  exceptionTo: 'prefix-ge'
+},
+{
+  word: "Gebrauch",
+  article: "der",
+  translations: {
+    en: "use",
+    ru: "употребление",
+    de: "Gebrauch",
+    es: "uso",
+    fr: "usage",
+    ja: "使用",
+    zh: "使用",
+    pt: "uso",
+    ko: "사용",
+    ar: "استخدام",
+    hi: "उपयोग"
+  },
+  ruleId: 'exceptions-der',
+  isException: true,
+  exceptionTo: 'prefix-ge'
+},
+{
+  word: "Gewalt",
+  article: "die",
+  translations: {
+    en: "violence",
+    ru: "насилие",
+    de: "Gewalt",
+    es: "violencia",
+    fr: "violence",
+    ja: "暴力",
+    zh: "暴力",
+    pt: "violência",
+    ko: "폭력",
+    ar: "عنف",
+    hi: "हिंसा"
+  },
+  ruleId: 'exceptions-die',
+  isException: true,
+  exceptionTo: 'prefix-ge'
+},
+{
+  word: "Geduld",
+  article: "die",
+  translations: {
+    en: "patience",
+    ru: "терпение",
+    de: "Geduld",
+    es: "paciencia",
+    fr: "patience",
+    ja: "忍耐",
+    zh: "耐心",
+    pt: "paciência",
+    ko: "인내",
+    ar: "صبر",
+    hi: "धैर्य"
+  },
+  ruleId: 'exceptions-die',
+  isException: true,
+  exceptionTo: 'prefix-ge'
+}
 ];
 
 

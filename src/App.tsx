@@ -368,9 +368,12 @@ function App() {
               <button
                 key={lang.code}
                 onClick={() => i18n.changeLanguage(lang.code)}
-                className={i18n.language === lang.code ? "active" : ""}
+                className={`lang-btn ${
+                  i18n.language === lang.code ? "active" : ""
+                }`}
+                title={lang.name}
               >
-                {lang.name}
+                {lang.code.toUpperCase()}
               </button>
             ))}
           </div>
@@ -403,7 +406,7 @@ function App() {
         </div>
 
         <div className="progress-indicator">
-          {viewMode === "mistakes" ? t("reviewingMistakes") : t("word")}
+          {viewMode === "mistakes" ? t("reviewingMistakes") : t("word")}{" "}
           {currentWordIndex + 1} {t("from")} {shuffledWords.length}
         </div>
       </header>
