@@ -34,5 +34,6 @@
   "otherRules": "기타 규칙",
   "filterAll": "모든 규칙",
   "word": "단어",
-  "reviewingMistakes": "오답 복습:"
+  "reviewingMistakes": "오답 복습:",
+  "exceptionAbbreviation": "예외"
 }

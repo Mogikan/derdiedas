@@ -80,7 +80,9 @@ const RulesList: React.FC<RulesListProps> = ({ onBack }) => {
                         word.word}
                     </span>
                     {word.isException && (
-                      <span className="exception-badge">искл.</span>
+                      <span className="exception-badge">
+                        {t("exceptionAbbreviation")}
+                      </span>
                     )}
                   </div>
                 ))}

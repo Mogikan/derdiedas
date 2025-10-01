@@ -1482,25 +1482,6 @@ const GERMAN_WORDS_DATA: GermanWord[] = [
     isException: false
   },
   {
-    word: "Nacht",
-    article: "die",
-    translations: {
-      en: "night",
-      ru: "ночь",
-      de: "Nacht",
-      es: "noche",
-      fr: "nuit",
-      ja: "夜",
-      zh: "夜晚",
-      pt: "noite",
-      ko: "밤",
-      ar: "ليل",
-      hi: "रात"
-    },
-    ruleId: 'endings-t',
-    isException: false
-  },
-  {
     word: "Schlacht",
     article: "die",
     translations: {

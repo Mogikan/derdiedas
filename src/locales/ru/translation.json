@@ -34,5 +34,6 @@
   "otherRules": "Другие правила",
   "filterAll": "Все правила",
   "word": "Слово",
-  "reviewingMistakes": "Повторение ошибок:"
+  "reviewingMistakes": "Повторение ошибок:",
+  "exceptionAbbreviation": "искл."
 }

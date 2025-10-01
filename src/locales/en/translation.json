@@ -34,5 +34,6 @@
   "otherRules": "Other rules",
   "filterAll": "All rules",
   "word": "Word",
-  "reviewingMistakes": "Reviewing mistakes:"
+  "reviewingMistakes": "Reviewing mistakes:",
+  "exceptionAbbreviation": "exc."
 }

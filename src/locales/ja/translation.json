@@ -34,5 +34,6 @@
   "otherRules": "その他のルール",
   "filterAll": "すべてのルール",
   "word": "単語",
-  "reviewingMistakes": "間違いの復習："
+  "reviewingMistakes": "間違いの復習：",
+  "exceptionAbbreviation": "例外"
 }
