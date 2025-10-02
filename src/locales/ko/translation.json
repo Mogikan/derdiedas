@@ -3,7 +3,7 @@
   "learning": "학습",
   "mistakes": "오답 ({{count}})",
   "statistics": "통계",
-  "allRules": "모든 규칙",
+  "allRules": "규칙",
   "backToLearning": "← 학습으로 돌아가기",
   "correct": "정답! ✓",
   "incorrect": "오답! ✗",

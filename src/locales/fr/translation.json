@@ -3,7 +3,7 @@
   "learning": "Apprentissage",
   "mistakes": "Erreurs ({{count}})",
   "statistics": "Statistiques",
-  "allRules": "Toutes les règles",
+  "allRules": "Règles",
   "backToLearning": "← Retour à l'apprentissage",
   "correct": "Correct ! ✓",
   "incorrect": "Incorrect ! ✗",
@@ -34,5 +34,6 @@
   "otherRules": "Autres règles",
   "filterAll": "Toutes les règles",
   "word": "Mot",
-  "reviewingMistakes": "Révision des erreurs :"
+  "reviewingMistakes": "Révision des erreurs :",
+  "exceptionAbbreviation": "excep."
 }

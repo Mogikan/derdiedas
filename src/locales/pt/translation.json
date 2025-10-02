@@ -3,7 +3,7 @@
   "learning": "Aprendizado",
   "mistakes": "Erros ({{count}})",
   "statistics": "Estatísticas",
-  "allRules": "Todas as regras",
+  "allRules": "Regras",
   "backToLearning": "← Voltar ao aprendizado",
   "correct": "Correto! ✓",
   "incorrect": "Incorreto! ✗",

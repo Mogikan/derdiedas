@@ -3,7 +3,7 @@
   "learning": "学习",
   "mistakes": "错误 ({{count}})",
   "statistics": "统计",
-  "allRules": "所有规则",
+  "allRules": "规则",
   "backToLearning": "← 返回学习",
   "correct": "正确！✓",
   "incorrect": "错误！✗",
