@@ -24,24 +24,117 @@ body {
   overflow: hidden;
 }
 
-/* Стили для нового расположения фильтра */
+/* === НОВЫЕ СТИЛИ ДЛЯ КОМПАКТНОГО HEADER === */
+
 .header {
   background: #4a5568;
   color: white;
-  padding: 15px 20px;
+  padding: 12px 15px; /* Уменьшаем вертикальные отступы */
   text-align: center;
-}
-/* Добавьте эти стили в App.css */
-
-/* Кнопки режимов */
-.header-controls {
   display: flex;
   flex-direction: column;
-  gap: 15px;
-  margin: 15px 0;
+  gap: 10px; /* Расстояние между рядами */
 }
 
-/* Контейнер для выбора языка */
+/* Общий стиль для рядов в header */
+.header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px; /* Расстояние между элементами в ряду */
+  width: 100%;
+}
+
+.app-title {
+  font-size: 1.25rem; /* Немного уменьшаем заголовок */
+  margin: 0;
+  text-align: left;
+  flex-shrink: 0; /* Чтобы заголовок не сжимался */
+}
+
+/* Контейнер для кнопок режимов */
+.view-mode-buttons {
+  display: flex;
+  gap: 5px;
+  justify-content: flex-start; /* Выравниваем по левому краю */
+  flex-grow: 1; /* Позволяем занимать доступное место */
+  overflow-x: auto; /* Горизонтальный скролл, если не помещается */
+  -webkit-overflow-scrolling: touch; /* Плавный скролл на iOS */
+  padding-bottom: 5px; /* Небольшой отступ для тени скроллбара */
+  min-width: 0;
+}
+
+/* Скрываем скроллбар */
+.view-mode-buttons::-webkit-scrollbar {
+  display: none;
+}
+
+
+/* Контейнер для фильтра */
+.filter-container {
+  flex-shrink: 0; /* Фильтр не сжимается */
+  align-content: center;
+}
+
+
+/* Ряд с дополнительной информацией (статистика и прогресс) */
+.sub-info {
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin-top: 5px;
+}
+.stats, .progress-indicator {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 4px 10px;
+  border-radius: 12px;
+  margin: 0;
+}
+.stats .accuracy{
+    display: inline;
+}
+
+
+/* Убираем старые ненужные стили */
+.header-top, .header-controls {
+  display: contents; /* Эти обертки больше не нужны для стилизации */
+}
+
+
+/* --- Адаптивность --- */
+
+/* Стили для Desktop (широких экранов) */
+@media (min-width: 769px) {
+  
+  .app-title {
+    font-size: 1.5rem;
+  }
+}
+
+/* Стили для мобильных устройств (узких экранов) */
+@media (max-width: 768px) {
+  .header {
+    padding: 10px;
+  }
+  .lang-select {
+    padding: 4px 8px;
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-row {
+      flex-wrap: wrap; /* Разрешаем перенос, если совсем тесно */
+  }
+  .app-title {
+      width: 100%;
+      margin-bottom: 5px;
+  }
+  .view-mode-buttons {
+      width: 100%;
+      justify-content: center;
+  }
+}/* Контейнер для выбора языка */
 .language-control {
   width: 100%;
   max-width: 300px;
@@ -66,51 +159,14 @@ body {
 .lang-select:focus {
   border-color: #667eea;
 }
-
-/* Кнопки режимов — теперь не переносятся */
-.view-mode-buttons {
-  display: flex;
-  gap: 6px; /* уменьшенный отступ */
-  justify-content: center;
-  flex-wrap: nowrap; /* ← ЗАПРЕЩАЕМ перенос */
-  overflow-x: auto; /* ← добавляем прокрутку, если не помещаются */
-  padding: 0 5px;
-  -webkit-overflow-scrolling: touch;
-}
-
-.mode-btn {
-  white-space: nowrap; /* ← текст не переносится */
-  min-width: auto; /* ← разрешаем сжиматься */
-  padding: 6px 10px; /* ← уменьшенный padding */
-  font-size: 0.75rem; /* ← мелкий шрифт */
-  flex-shrink: 0; /* ← кнопки не сжимаются слишком сильно */
-}
-
 /* Скрываем стрелку у select на мобильных (опционально) */
 .lang-select::-ms-expand,
 .lang-select::after {
   display: none;
 }
 
-/* Адаптивность */
-@media (min-width: 769px) {
-  /* На десктопе — показываем кнопки языков */
-  .language-control {
-    display: none;
-  }
-
-  /* Восстанавливаем старые кнопки языков (если они есть в другом месте) */
-  .language-switcher {
-    display: flex !important;
-  }
-}
 
 @media (max-width: 768px) {
-  /* На мобильных — скрываем кнопки языков */
-  .language-switcher {
-    display: none !important;
-  }
-
   .view-mode-buttons {
     gap: 4px;
   }
@@ -121,23 +177,101 @@ body {
   }
 }
 
-.mode-btn:hover {
-  border-color: #667eea;
-  background: #667eea;
-  color: white;
+/* === НОВЫЙ ДИЗАЙН КНОПОК В HEADER === */
+
+.mode-btn {
+  /* Форма и шрифт */
+  padding: 6px 14px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border-radius: 18px; /* Более округлая форма */
+  white-space: nowrap;
+  cursor: pointer;
+  flex-shrink: 0;
+
+  /* Стили "ghost button" */
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: rgba(255, 255, 255, 0.9);
+
+  /* Плавный переход для всех состояний */
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* Эффект при наведении курсора */
+.mode-btn:not(:disabled):hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.8);
+  color: #ffffff;
+  transform: translateY(-2px); /* Легкий эффект "взлета" */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Стиль для активной/выбранной кнопки */
 .mode-btn.active {
-  background: #667eea;
-  color: white;
-  border-color: #667eea;
+  background: #ffffff;
+  color: #4a5568; /* Цвет фона хедера для контраста */
+  border-color: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
+/* Стиль для неактивной кнопки */
 .mode-btn:disabled {
-  opacity: 0.5;
+  opacity: 0.4;
   cursor: not-allowed;
 }
 
+/* --- Бонус: Улучшим и стиль фильтра, чтобы он соответствовал --- */
+.filter-select {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: rgba(255, 255, 255, 0.9);
+  transition: all 0.2s ease;
+  padding: 7px 14px;
+  font-weight: 600;
+
+  /* Кастомная стрелка для select */
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 1em;
+  padding-right: 30px; /* Место для стрелки */
+}
+
+.filter-select:hover {
+  border-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+
+/* Компактный фильтр */
+.filter-compact {
+  margin: 0 auto;
+  max-width: 300px;
+}
+
+.filter-select-compact {
+  padding: 8px 15px;
+  border-radius: 20px;
+  border: 2px solid #e2e8f0;
+  background: white;
+  font-size: 0.9rem;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.3s ease;
+  width: 100%;
+  color: #2d3748;
+}
+
+.filter-select-compact:focus {
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.filter-select-compact:hover {
+  border-color: #a0aec0;
+}
 /* Сообщение об отсутствии слов */
 .no-words-message {
   text-align: center;
@@ -397,39 +531,12 @@ body {
   font-size: 1rem;
   opacity: 0.9;
   background: rgba(255, 255, 255, 0.1);
-  padding: 8px 15px;
+  padding: 5px 12px;
   border-radius: 15px;
   min-width: 120px;
   display: inline-block;
 }
 
-/* Компактный фильтр */
-.filter-compact {
-  margin: 0 auto;
-  max-width: 300px;
-}
-
-.filter-select-compact {
-  padding: 8px 15px;
-  border-radius: 20px;
-  border: 2px solid #e2e8f0;
-  background: white;
-  font-size: 0.9rem;
-  cursor: pointer;
-  outline: none;
-  transition: all 0.3s ease;
-  width: 100%;
-  color: #2d3748;
-}
-
-.filter-select-compact:focus {
-  border-color: #667eea;
-  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
-}
-
-.filter-select-compact:hover {
-  border-color: #a0aec0;
-}
 
 /* Адаптивность */
 @media (max-width: 600px) {
@@ -724,7 +831,6 @@ body {
 
 /* Добавьте в App.css */
 .progress-indicator {
-  margin-top: 10px;
   font-size: 0.9rem;
   color: rgba(255, 255, 255, 0.8);
   background: rgba(255, 255, 255, 0.1);
@@ -781,54 +887,6 @@ body {
   color: white;
   padding: 2px 6px;
   border-radius: 4px;
-}
-
-.filter {
-  margin: 15px 0;
-  text-align: center;
-}
-
-.filter select {
-  padding: 10px 15px;
-  border-radius: 20px;
-  border: 2px solid #e2e8f0;
-  background: white;
-  font-size: 1rem;
-  cursor: pointer;
-  outline: none;
-  transition: border-color 0.2s ease;
-}
-
-.filter select:focus {
-  border-color: #4299e1;
-}
-
-.filter {
-  margin: 20px 0;
-  text-align: center;
-}
-
-.filter-select {
-  padding: 12px 20px;
-  border-radius: 25px;
-  border: 2px solid #e2e8f0;
-  background: white;
-  font-size: 1rem;
-  cursor: pointer;
-  outline: none;
-  transition: all 0.3s ease;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  width: 90%;
-  max-width: 400px;
-}
-
-.filter-select:focus {
-  border-color: #667eea;
-  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
-}
-
-.filter-select:hover {
-  border-color: #a0aec0;
 }
 
 
@@ -1112,35 +1170,6 @@ body {
   display: none;
 }
 
-.mode-btn {
-  padding: 8px 16px;
-  border: 2px solid #e2e8f0;
-  background: white;
-  color: #4a5568;
-  border-radius: 20px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  font-size: 0.85rem;
-  white-space: nowrap;
-}
-
-.mode-btn:hover {
-  border-color: #667eea;
-  background: #667eea;
-  color: white;
-}
-
-.mode-btn.active {
-  background: #667eea;
-  color: white;
-  border-color: #667eea;
-}
-
-.mode-btn:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
-
 
 /* Контейнеры выбора языка */
 .language-switcher{
@@ -1184,25 +1213,4 @@ body {
   background: white;
   cursor: pointer;
   outline: none;
-}
-
-/* Адаптивность */
-@media (max-width: 768px) {
-  .language-switcher {
-    display: none !important;
-  }
-
-  .language-select-container {
-    display: inline-block !important;
-  }
-}
-
-@media (min-width: 769px) {
-  .language-select-container {
-    display: none !important;
-  }
-
-  .language-switcher {
-    display: flex !important;
-  }
 }

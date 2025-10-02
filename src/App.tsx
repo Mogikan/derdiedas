@@ -351,8 +351,9 @@ function App() {
   return (
     <div className="app">
       <header className="header">
-        <div className="header-top">
-          <h1>{t("appTitle")}</h1>
+        {/* --- НАЧАЛО ЗАМЕНЫ --- */}
+        <div className="header-row">
+          <h1 className="app-title">{t("appTitle")}</h1>
           <div className="language-select-container">
             <select
               value={i18n.language}
@@ -367,58 +368,49 @@ function App() {
             </select>
           </div>
         </div>
-
-        <div className="language-switcher">
-          {languages.map((lang) => (
+        <div className="header-row">
+          <div className="view-mode-buttons">
             <button
-              key={lang.code}
-              onClick={() => i18n.changeLanguage(lang.code)}
-              className={i18n.language === lang.code ? "active" : ""}
+              className={`mode-btn ${viewMode === "learning" ? "active" : ""}`}
+              onClick={() => setViewMode("learning")}
             >
-              {lang.name}
+              {t("learning")}
             </button>
-          ))}
+            <button
+              className={`mode-btn ${viewMode === "mistakes" ? "active" : ""}`}
+              onClick={() => setViewMode("mistakes")}
+              disabled={statistics.mistakes.length === 0}
+            >
+              {t("mistakes", { count: statistics.mistakes.length })}
+            </button>
+            <button
+              className="mode-btn"
+              onClick={() => setViewMode("statistics")}
+            >
+              {t("statistics")}
+            </button>
+            <button className="mode-btn" onClick={() => setViewMode("rules")}>
+              {t("allRules")}
+            </button>
+          </div>
         </div>
-
-        <div className="view-mode-buttons">
-          <button
-            className={`mode-btn ${viewMode === "learning" ? "active" : ""}`}
-            onClick={() => setViewMode("learning")}
-          >
-            {t("learning")}
-          </button>
-          <button
-            className={`mode-btn ${viewMode === "mistakes" ? "active" : ""}`}
-            onClick={() => setViewMode("mistakes")}
-            disabled={statistics.mistakes.length === 0}
-          >
-            {t("mistakes", { count: statistics.mistakes.length })}
-          </button>
-          <button
-            className="mode-btn"
-            onClick={() => setViewMode("statistics")}
-          >
-            {t("statistics")}
-          </button>
-          <button className="mode-btn" onClick={() => setViewMode("rules")}>
-            {t("allRules")}
-          </button>
-        </div>
-
-        <div className="header-controls">
+        <div className="filter-container">
           <Filter currentFilter={filter} onFilterChange={handleFilterChange} />
         </div>
-        <div className="stats">
-          {t("correctAnswers")} : {statistics.correctAnswers} {t("from")}{" "}
-          {statistics.totalAttempts}
-          {statistics.totalAttempts > 0 && (
-            <span className="accuracy"> ({accuracy}%)</span>
-          )}
+
+        <div className="header-row sub-info">
+          <div className="stats">
+            {statistics.correctAnswers} / {statistics.totalAttempts}
+            {statistics.totalAttempts > 0 && (
+              <span className="accuracy"> ({accuracy}%)</span>
+            )}
+          </div>
+          <div className="progress-indicator">
+            {viewMode === "mistakes" ? t("reviewingMistakes") : t("word")}{" "}
+            {currentWordIndex + 1} / {shuffledWords.length}
+          </div>
         </div>
-        <div className="progress-indicator">
-          {viewMode === "mistakes" ? t("reviewingMistakes") : t("word")}{" "}
-          {currentWordIndex + 1} {t("from")} {shuffledWords.length}
-        </div>
+        {/* --- КОНЕЦ ЗАМЕНЫ --- */}
       </header>
 
       <main className="main">
