@@ -2021,25 +2021,6 @@ const GERMAN_WORDS_DATA: GermanWord[] = [
     isException: false
   },
   {
-    word: "Museum",
-    article: "das",
-    translations: {
-      en: "museum",
-      ru: "музей",
-      de: "Museum",
-      es: "museo",
-      fr: "musée",
-      ja: "美術館",
-      zh: "博物馆",
-      pt: "museu",
-      ko: "박물관",
-      ar: "متحف",
-      hi: "संग्रहालय"
-    },
-    ruleId: 'endings-tum',
-    isException: false
-  },
-  {
     word: "Christentum",
     article: "das",
     translations: {
@@ -4351,9 +4332,8 @@ const GERMAN_WORDS_DATA: GermanWord[] = [
     ar: "دون",
     hi: "डॉन"
   },
-  ruleId: 'exceptions-der',
-  isException: true,
-  exceptionTo: 'rivers-outside-germany'
+  ruleId: 'rivers-outside-germany',
+  isException: true
 },
 {
   word: "Tomate",
@@ -4884,9 +4864,8 @@ const GERMAN_WORDS_DATA: GermanWord[] = [
     ar: "زبدة",
     hi: "मक्खन"
   },
-  ruleId: 'exceptions-die',
+  ruleId: 'endings-er',
   isException: true,
-  exceptionTo: 'endings-er'
 },
 {
   word: "Tochter",
@@ -4923,9 +4902,8 @@ const GERMAN_WORDS_DATA: GermanWord[] = [
     ar: "أسبوع",
     hi: "सप्ताह"
   },
-  ruleId: 'exceptions-die',
+  ruleId: 'days-months-seasons',
   isException: true,
-  exceptionTo: 'days-months-seasons'
 },
 {
   word: "Alpen",
@@ -4943,9 +4921,8 @@ const GERMAN_WORDS_DATA: GermanWord[] = [
     ar: "الألب",
     hi: "एल्प्स"
   },
-  ruleId: 'exceptions-die',
-  isException: true,
-  exceptionTo: 'mountains'
+  ruleId: 'mountains',
+  isException: true
 },
 {
   word: "Anden",
@@ -4963,9 +4940,8 @@ const GERMAN_WORDS_DATA: GermanWord[] = [
     ar: "أنديز",
     hi: "एंडीज़"
   },
-  ruleId: 'exceptions-die',
-  isException: true,
-  exceptionTo: 'mountains'
+  ruleId: 'mountains',
+  isException: true
 },
 {
   word: "Pyrenäen",
@@ -4983,9 +4959,8 @@ const GERMAN_WORDS_DATA: GermanWord[] = [
     ar: "البيرينيه",
     hi: "पिरेनीज़"
   },
-  ruleId: 'exceptions-die',
-  isException: true,
-  exceptionTo: 'mountains'
+  ruleId: 'mountains',
+  isException: true
 },
 {
   word: "Kordilleren",
@@ -5003,9 +4978,8 @@ const GERMAN_WORDS_DATA: GermanWord[] = [
     ar: "كورديليرا",
     hi: "कॉर्डिलेरा"
   },
-  ruleId: 'exceptions-die',
+  ruleId: 'mountains',
   isException: true,
-  exceptionTo: 'mountains'
 },
 {
   word: "Hälfte",
@@ -5023,9 +4997,8 @@ const GERMAN_WORDS_DATA: GermanWord[] = [
     ar: "نصف",
     hi: "आधा"
   },
-  ruleId: 'exceptions-die',
-  isException: true,
-  exceptionTo: 'fractions'
+  ruleId: 'fractions',
+  isException: true
 },
 {
   word: "Fenster",
@@ -5043,9 +5016,8 @@ const GERMAN_WORDS_DATA: GermanWord[] = [
     ar: "نافذة",
     hi: "खिड़की"
   },
-  ruleId: 'exceptions-das',
-  isException: true,
-  exceptionTo: 'endings-er'
+  ruleId: 'endings-er',
+  isException: true
 },
 {
   word: "Wasser",
@@ -5063,9 +5035,8 @@ const GERMAN_WORDS_DATA: GermanWord[] = [
     ar: "ماء",
     hi: "पानी"
   },
-  ruleId: 'exceptions-das',
-  isException: true,
-  exceptionTo: 'endings-er'
+  ruleId: 'endings-er',
+  isException: true
 },
 {
   word: "Messer",
@@ -5083,9 +5054,8 @@ const GERMAN_WORDS_DATA: GermanWord[] = [
     ar: "سكين",
     hi: "चाकू"
   },
-  ruleId: 'exceptions-das',
-  isException: true,
-  exceptionTo: 'endings-er'
+  ruleId: 'endings-er',
+  isException: true
 },
 {
   word: "Bier",
@@ -5103,9 +5073,8 @@ const GERMAN_WORDS_DATA: GermanWord[] = [
     ar: "بيرة",
     hi: "बीयर"
   },
-  ruleId: 'exceptions-das',
-  isException: true,
-  exceptionTo: 'alcoholic-drinks'
+  ruleId: 'alcoholic-drinks',
+  isException: true
 },
 {
   word: "Kind",
@@ -5142,9 +5111,8 @@ const GERMAN_WORDS_DATA: GermanWord[] = [
     ar: "اغتيال",
     hi: "हत्या"
   },
-  ruleId: 'exceptions-das',
-  isException: true,
-  exceptionTo: 'endings-t'
+  ruleId: 'endings-t',
+  isException: true
 },
 {
   word: "Jahr",
@@ -5162,9 +5130,8 @@ const GERMAN_WORDS_DATA: GermanWord[] = [
     ar: "سنة",
     hi: "साल"
   },
-  ruleId: 'exceptions-das',
-  isException: true,
-  exceptionTo: 'days-months-seasons'
+  ruleId: 'days-months-seasons',
+  isException: true
 },
 {
   word: "Hundert",
@@ -5182,9 +5149,8 @@ const GERMAN_WORDS_DATA: GermanWord[] = [
     ar: "مائة",
     hi: "सौ"
   },
-  ruleId: 'exceptions-das',
-  isException: true,
-  exceptionTo: 'cardinal-numbers'
+  ruleId: 'cardinal-numbers',
+  isException: true
 },
 {
   word: "Tausend",
@@ -5202,9 +5168,8 @@ const GERMAN_WORDS_DATA: GermanWord[] = [
     ar: "ألف",
     hi: "हज़ार"
   },
-  ruleId: 'exceptions-das',
-  isException: true,
-  exceptionTo: 'cardinal-numbers'
+  ruleId: 'cardinal-numbers',
+  isException: true
 },
 {
   word: "Dutzend",
@@ -5222,9 +5187,8 @@ const GERMAN_WORDS_DATA: GermanWord[] = [
     ar: "دزينة",
     hi: "दर्जन"
   },
-  ruleId: 'exceptions-das',
-  isException: true,
-  exceptionTo: 'cardinal-numbers'
+  ruleId: 'cardinal-numbers',
+  isException: true
 },
 {
   word: "Veilchen",
@@ -5242,9 +5206,8 @@ const GERMAN_WORDS_DATA: GermanWord[] = [
     ar: "بنفسج",
     hi: "बैंगनी"
   },
-  ruleId: 'exceptions-das',
-  isException: true,
-  exceptionTo: 'flowers-fruits-vegetables'
+  ruleId: 'flowers-fruits-vegetables',
+  isException: true
 },
 {
   word: "Vergissmeinnicht",
@@ -5282,9 +5245,8 @@ const GERMAN_WORDS_DATA: GermanWord[] = [
     ar: "بنفسج ثلاثي الألوان",
     hi: "पैंसी"
   },
-  ruleId: 'exceptions-das',
-  isException: true,
-  exceptionTo: 'flowers-fruits-vegetables'
+  ruleId: 'flowers-fruits-vegetables',
+  isException: true
 },
 {
   word: "Kaffee",
@@ -5397,9 +5359,8 @@ const GERMAN_WORDS_DATA: GermanWord[] = [
     ar: "قيقب",
     hi: "मेपल"
   },
-  ruleId: 'exceptions-der',
-  isException: true,
-  exceptionTo: 'flowers-fruits-vegetables'
+  ruleId: 'flowers-fruits-vegetables',
+  isException: true
 },
 {
   word: "Mohn",
@@ -5417,9 +5378,8 @@ const GERMAN_WORDS_DATA: GermanWord[] = [
     ar: "خشخاش",
     hi: "खसखस"
   },
-  ruleId: 'exceptions-der',
-  isException: true,
-  exceptionTo: 'flowers-fruits-vegetables'
+  ruleId: 'flowers-fruits-vegetables',
+  isException: true
 },
 {
   word: "Kürbis",
@@ -5437,9 +5397,8 @@ const GERMAN_WORDS_DATA: GermanWord[] = [
     ar: "يقطين",
     hi: "कद्दू"
   },
-  ruleId: 'exceptions-der',
-  isException: true,
-  exceptionTo: 'flowers-fruits-vegetables'
+  ruleId: 'flowers-fruits-vegetables',
+  isException: true
 },
 {
   word: "Rhein",
@@ -5457,9 +5416,8 @@ const GERMAN_WORDS_DATA: GermanWord[] = [
     ar: "راين",
     hi: "राइन"
   },
-  ruleId: 'exceptions-der',
-  isException: true,
-  exceptionTo: 'rivers-inside-germany'
+  ruleId: 'rivers-inside-germany',
+  isException: true
 },
 {
   word: "Nil",
@@ -5477,9 +5435,8 @@ const GERMAN_WORDS_DATA: GermanWord[] = [
     ar: "نيل",
     hi: "नील"
   },
-  ruleId: 'exceptions-der',
-  isException: true,
-  exceptionTo: 'rivers-outside-germany'
+  ruleId: 'rivers-outside-germany',
+  isException: true
 },
 {
   word: "Amazonas",
@@ -5497,9 +5454,8 @@ const GERMAN_WORDS_DATA: GermanWord[] = [
     ar: "أمازون",
     hi: "अमेज़न"
   },
-  ruleId: 'exceptions-der',
-  isException: true,
-  exceptionTo: 'rivers-outside-germany'
+  ruleId: 'rivers-outside-germany',
+  isException: true
 },
 {
   word: "Ganges",
@@ -5517,9 +5473,8 @@ const GERMAN_WORDS_DATA: GermanWord[] = [
     ar: "غانج",
     hi: "गंगा"
   },
-  ruleId: 'exceptions-der',
-  isException: true,
-  exceptionTo: 'rivers-outside-germany'
+  ruleId: 'rivers-outside-germany',
+  isException: true
 },
 {
   word: "Main",
@@ -5537,9 +5492,8 @@ const GERMAN_WORDS_DATA: GermanWord[] = [
     ar: "ماين",
     hi: "मेन"
   },
-  ruleId: 'exceptions-der',
-  isException: true,
-  exceptionTo: 'rivers-inside-germany'
+  ruleId: 'rivers-inside-germany',
+  isException: true
 },
 {
   word: "Neckar",
@@ -5557,9 +5511,8 @@ const GERMAN_WORDS_DATA: GermanWord[] = [
     ar: "نكّار",
     hi: "नेकर"
   },
-  ruleId: 'exceptions-der',
-  isException: true,
-  exceptionTo: 'rivers-inside-germany'
+  ruleId: 'rivers-inside-germany',
+  isException: true
 },
 {
   word: "Jordan",
@@ -5577,9 +5530,8 @@ const GERMAN_WORDS_DATA: GermanWord[] = [
     ar: "الأردن",
     hi: "जॉर्डन"
   },
-  ruleId: 'exceptions-der',
-  isException: true,
-  exceptionTo: 'rivers-outside-germany'
+  ruleId: 'rivers-outside-germany',
+  isException: true
 },
 {
   word: "Jangtse",
@@ -5597,9 +5549,8 @@ const GERMAN_WORDS_DATA: GermanWord[] = [
     ar: "يانغتسي",
     hi: "यांग्त्ज़ी"
   },
-  ruleId: 'exceptions-der',
-  isException: true,
-  exceptionTo: 'rivers-outside-germany'
+  ruleId: 'rivers-outside-germany',
+  isException: true
 },
 {
   word: "Stahl",
@@ -5617,9 +5568,8 @@ const GERMAN_WORDS_DATA: GermanWord[] = [
     ar: "فولاذ",
     hi: "इस्पात"
   },
-  ruleId: 'exceptions-der',
-  isException: true,
-  exceptionTo: 'chemical-elements'
+  ruleId: 'chemical-elements',
+  isException: true
 },
 {
   word: "Phosphor",
@@ -5637,9 +5587,8 @@ const GERMAN_WORDS_DATA: GermanWord[] = [
     ar: "فوسفور",
     hi: "फॉस्फोरस"
   },
-  ruleId: 'exceptions-der',
-  isException: true,
-  exceptionTo: 'chemical-elements'
+  ruleId: 'chemical-elements',
+  isException: true
 },
 {
   word: "Schwefel",
@@ -5657,9 +5606,8 @@ const GERMAN_WORDS_DATA: GermanWord[] = [
     ar: "كبريت",
     hi: "गंधक"
   },
-  ruleId: 'exceptions-der',
-  isException: true,
-  exceptionTo: 'chemical-elements'
+  ruleId: 'chemical-elements',
+  isException: true
 },
 {
   word: "Atlantik",
@@ -5677,9 +5625,8 @@ const GERMAN_WORDS_DATA: GermanWord[] = [
     ar: "أطلسي",
     hi: "अटलांटिक"
   },
-  ruleId: 'exceptions-der',
-  isException: true,
-  exceptionTo: 'endings-ik'
+  ruleId: 'endings-ik',
+  isException: true
 },
 {
   word: "Pazifik",
@@ -5697,9 +5644,8 @@ const GERMAN_WORDS_DATA: GermanWord[] = [
     ar: "هادئ",
     hi: "प्रशांत"
   },
-  ruleId: 'exceptions-der',
-  isException: true,
-  exceptionTo: 'endings-ik'
+  ruleId: 'endings-ik',
+  isException: true
 },
 {
   word: "Irrtum",
@@ -5717,9 +5663,8 @@ const GERMAN_WORDS_DATA: GermanWord[] = [
     ar: "خطأ",
     hi: "भूल"
   },
-  ruleId: 'exceptions-der',
-  isException: true,
-  exceptionTo: 'endings-um'
+  ruleId: 'endings-um',
+  isException: true
 },
 {
   word: "Gedanke",
@@ -5737,9 +5682,8 @@ const GERMAN_WORDS_DATA: GermanWord[] = [
     ar: "فكرة",
     hi: "विचार"
   },
-  ruleId: 'exceptions-der',
-  isException: true,
-  exceptionTo: 'prefix-ge'
+  ruleId: 'prefix-ge',
+  isException: true
 },
 {
   word: "Gesang",
@@ -5757,9 +5701,8 @@ const GERMAN_WORDS_DATA: GermanWord[] = [
     ar: "غناء",
     hi: "गायन"
   },
-  ruleId: 'exceptions-der',
-  isException: true,
-  exceptionTo: 'prefix-ge'
+  ruleId: 'prefix-ge',
+  isException: true
 },
 {
   word: "Geruch",
@@ -5777,9 +5720,8 @@ const GERMAN_WORDS_DATA: GermanWord[] = [
     ar: "رائحة",
     hi: "गंध"
   },
-  ruleId: 'exceptions-der',
-  isException: true,
-  exceptionTo: 'prefix-ge'
+  ruleId: 'prefix-ge',
+  isException: true
 },
 {
   word: "Geschmack",
@@ -5797,9 +5739,8 @@ const GERMAN_WORDS_DATA: GermanWord[] = [
     ar: "طعم",
     hi: "स्वाद"
   },
-  ruleId: 'exceptions-der',
-  isException: true,
-  exceptionTo: 'prefix-ge'
+  ruleId: 'prefix-ge',
+  isException: true
 },
 {
   word: "Gestank",
@@ -5817,9 +5758,8 @@ const GERMAN_WORDS_DATA: GermanWord[] = [
     ar: "نتن",
     hi: "दुर्गंध"
   },
-  ruleId: 'exceptions-der',
-  isException: true,
-  exceptionTo: 'prefix-ge'
+  ruleId: 'prefix-ge',
+  isException: true
 },
 {
   word: "Gebrauch",
@@ -5837,9 +5777,8 @@ const GERMAN_WORDS_DATA: GermanWord[] = [
     ar: "استخدام",
     hi: "उपयोग"
   },
-  ruleId: 'exceptions-der',
-  isException: true,
-  exceptionTo: 'prefix-ge'
+  ruleId: 'prefix-ge',
+  isException: true
 },
 {
   word: "Gewalt",
@@ -5857,9 +5796,8 @@ const GERMAN_WORDS_DATA: GermanWord[] = [
     ar: "عنف",
     hi: "हिंसा"
   },
-  ruleId: 'exceptions-die',
-  isException: true,
-  exceptionTo: 'prefix-ge'
+  ruleId: 'prefix-ge',
+  isException: true
 },
 {
   word: "Geduld",
@@ -5877,9 +5815,8 @@ const GERMAN_WORDS_DATA: GermanWord[] = [
     ar: "صبر",
     hi: "धैर्य"
   },
-  ruleId: 'exceptions-die',
-  isException: true,
-  exceptionTo: 'prefix-ge'
+  ruleId: 'prefix-ge',
+  isException: true
 }
 ];
 

@@ -71,17 +71,19 @@ const WordCard: React.FC<WordCardProps> = ({
         </div>
       )}
       <div className={`rule-container ${showResult ? "visible" : "hidden"}`}>
-        <div className="rule-info">
-          <h4>
-            {word.isException ? t("exception") + " " : t("rule") + " "}
-            {t(`rule:${word.ruleId}`)}
-          </h4>
-          {word.isException && word.exceptionTo && (
-            <p className="exception-note">
-              {t("exceptionNote")} {t(`rule:${word.exceptionTo}`)}
-            </p>
-          )}
-        </div>
+        {word.isException ? (
+          <div className="exception-note">
+            <h4>
+              {t("exceptionNote")} {t(`rule:${word.ruleId}`)}
+            </h4>
+          </div>
+        ) : (
+          <div className="rule-info">
+            <h4>
+              {t("rule")} {t(`rule:${word.ruleId}`)}
+            </h4>
+          </div>
+        )}
       </div>
     </div>
   );
