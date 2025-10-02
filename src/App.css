@@ -55,6 +55,7 @@ body {
 /* Контейнер для кнопок режимов */
 .view-mode-buttons {
   display: flex;
+  flex-wrap: wrap;
   gap: 5px;
   justify-content: flex-start; /* Выравниваем по левому краю */
   flex-grow: 1; /* Позволяем занимать доступное место */
@@ -516,7 +517,7 @@ body {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 15px;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   gap: 10px;
 }
 
