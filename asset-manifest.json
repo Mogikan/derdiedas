@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/derdiedas/static/css/main.d1f69180.css",
-    "main.js": "/derdiedas/static/js/main.7151aa17.js",
+    "main.css": "/derdiedas/static/css/main.063a238f.css",
+    "main.js": "/derdiedas/static/js/main.3acbdbf7.js",
     "static/js/453.36887e2a.chunk.js": "/derdiedas/static/js/453.36887e2a.chunk.js",
     "index.html": "/derdiedas/index.html",
-    "main.d1f69180.css.map": "/derdiedas/static/css/main.d1f69180.css.map",
-    "main.7151aa17.js.map": "/derdiedas/static/js/main.7151aa17.js.map",
+    "main.063a238f.css.map": "/derdiedas/static/css/main.063a238f.css.map",
+    "main.3acbdbf7.js.map": "/derdiedas/static/js/main.3acbdbf7.js.map",
     "453.36887e2a.chunk.js.map": "/derdiedas/static/js/453.36887e2a.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.d1f69180.css",
-    "static/js/main.7151aa17.js"
+    "static/css/main.063a238f.css",
+    "static/js/main.3acbdbf7.js"
   ]
 }
