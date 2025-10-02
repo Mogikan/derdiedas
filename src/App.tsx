@@ -353,58 +353,68 @@ function App() {
       <header className="header">
         <div className="header-top">
           <h1>{t("appTitle")}</h1>
-          <div className="stats">
-            {t("correctAnswers")} : {statistics.correctAnswers} {t("from")}{" "}
-            {statistics.totalAttempts}
-            {statistics.totalAttempts > 0 && (
-              <span className="accuracy"> ({accuracy}%)</span>
-            )}
+          <div className="language-select-container">
+            <select
+              value={i18n.language}
+              onChange={(e) => i18n.changeLanguage(e.target.value)}
+              className="lang-select"
+            >
+              {languages.map((lang) => (
+                <option key={lang.code} value={lang.code}>
+                  {lang.name}
+                </option>
+              ))}
+            </select>
           </div>
+        </div>
+
+        <div className="language-switcher">
+          {languages.map((lang) => (
+            <button
+              key={lang.code}
+              onClick={() => i18n.changeLanguage(lang.code)}
+              className={i18n.language === lang.code ? "active" : ""}
+            >
+              {lang.name}
+            </button>
+          ))}
+        </div>
+
+        <div className="view-mode-buttons">
+          <button
+            className={`mode-btn ${viewMode === "learning" ? "active" : ""}`}
+            onClick={() => setViewMode("learning")}
+          >
+            {t("learning")}
+          </button>
+          <button
+            className={`mode-btn ${viewMode === "mistakes" ? "active" : ""}`}
+            onClick={() => setViewMode("mistakes")}
+            disabled={statistics.mistakes.length === 0}
+          >
+            {t("mistakes", { count: statistics.mistakes.length })}
+          </button>
+          <button
+            className="mode-btn"
+            onClick={() => setViewMode("statistics")}
+          >
+            {t("statistics")}
+          </button>
+          <button className="mode-btn" onClick={() => setViewMode("rules")}>
+            {t("allRules")}
+          </button>
         </div>
 
         <div className="header-controls">
-          <div className="language-switcher">
-            {languages.map((lang) => (
-              <button
-                key={lang.code}
-                onClick={() => i18n.changeLanguage(lang.code)}
-                className={`lang-btn ${
-                  i18n.language === lang.code ? "active" : ""
-                }`}
-                title={lang.name}
-              >
-                {lang.code.toUpperCase()}
-              </button>
-            ))}
-          </div>
           <Filter currentFilter={filter} onFilterChange={handleFilterChange} />
-
-          <div className="view-mode-buttons">
-            <button
-              className={`mode-btn ${viewMode === "learning" ? "active" : ""}`}
-              onClick={() => setViewMode("learning")}
-            >
-              {t("learning")}
-            </button>
-            <button
-              className={`mode-btn ${viewMode === "mistakes" ? "active" : ""}`}
-              onClick={() => setViewMode("mistakes")}
-              disabled={statistics.mistakes.length === 0}
-            >
-              {t("mistakes", { count: statistics.mistakes.length })}
-            </button>
-            <button
-              className="mode-btn"
-              onClick={() => setViewMode("statistics")}
-            >
-              {t("statistics")}
-            </button>
-            <button className="mode-btn" onClick={() => setViewMode("rules")}>
-              {t("allRules")}
-            </button>
-          </div>
         </div>
-
+        <div className="stats">
+          {t("correctAnswers")} : {statistics.correctAnswers} {t("from")}{" "}
+          {statistics.totalAttempts}
+          {statistics.totalAttempts > 0 && (
+            <span className="accuracy"> ({accuracy}%)</span>
+          )}
+        </div>
         <div className="progress-indicator">
           {viewMode === "mistakes" ? t("reviewingMistakes") : t("word")}{" "}
           {currentWordIndex + 1} {t("from")} {shuffledWords.length}
