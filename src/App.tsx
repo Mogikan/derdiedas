@@ -239,7 +239,7 @@ function App() {
       setShuffledWords(getBalancedShuffle(wordsToUse));
       setCurrentWordIndex(0);
     }
-  }, [viewMode, statistics.mistakes]);
+  }, [viewMode]);
 
   const currentWord = shuffledWords[currentWordIndex];
 
@@ -280,6 +280,11 @@ function App() {
 
   const clearMistakes = () => {
     dispatch({ type: "CLEAR_MISTAKES" });
+    // Принудительно обновить список ошибок (он станет пустым)
+    if (viewMode === "mistakes") {
+      setShuffledWords([]);
+      setCurrentWordIndex(0);
+    }
   };
 
   const accuracy =
@@ -355,6 +360,7 @@ function App() {
         <div className="header-row">
           <h1 className="app-title">{t("appTitle")}</h1>
           <div className="language-select-container">
+            <span>🌐</span>
             <select
               value={i18n.language}
               onChange={(e) => i18n.changeLanguage(e.target.value)}
