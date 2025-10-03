@@ -48,6 +48,7 @@
   "female-persons": "女性 → die",
   "ships-airplanes": "船と飛行機 → die",
   "cardinal-numbers": "基数 → die",
+  "no-rule": "性別（ゲンス）は歴史的に定着したもので、一般的なルールには従いません。",
   "exceptions-die": "女性形の例外",
   "exceptions-das": "中性の例外",
   "exceptions-der": "男性形の例外"

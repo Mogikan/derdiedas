@@ -48,6 +48,7 @@
   "female-persons": "Personnes féminines → die",
   "ships-airplanes": "Bateaux et avions → die",
   "cardinal-numbers": "Nombres cardinaux → die",
+  "no-rule": "Le genre est établi historiquement et ne suit pas de règles générales.",
   "exceptions-die": "Exceptions féminines",
   "exceptions-das": "Exceptions neutres",
   "exceptions-der": "Exceptions masculines"

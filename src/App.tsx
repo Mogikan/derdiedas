@@ -360,7 +360,6 @@ function App() {
         <div className="header-row">
           <h1 className="app-title">{t("appTitle")}</h1>
           <div className="language-select-container">
-            <span>🌐</span>
             <select
               value={i18n.language}
               onChange={(e) => i18n.changeLanguage(e.target.value)}

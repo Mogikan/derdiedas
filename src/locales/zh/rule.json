@@ -48,6 +48,7 @@
   "female-persons": "女性 → die",
   "ships-airplanes": "船只和飞机 → die",
   "cardinal-numbers": "基数 → die",
+  "no-rule": "词性由历史形成，不遵循通用规则。",
   "exceptions-die": "阴性例外",
   "exceptions-das": "中性例外",
   "exceptions-der": "阳性例外"

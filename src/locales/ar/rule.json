@@ -1,4 +1,4 @@
-{  
+{
   "endings-heit-keit": "الكلمات المنتهية بـ -heit، -keit ← die",
   "endings-schaft": "الكلمات المنتهية بـ -schaft ← die",
   "endings-ung": "الكلمات المنتهية بـ -ung ← die",
@@ -48,6 +48,7 @@
   "female-persons": "الأشخاص الإناث ← die",
   "ships-airplanes": "السفن والطائرات ← die",
   "cardinal-numbers": "الأعداد الأساسية ← die",
+  "no-rule": "يُحدَّد الجنس لغويًّا بناءً على التطور التاريخي ولا يتبع قواعد عامة.",
   "exceptions-die": "استثناءات المؤنث",
   "exceptions-das": "استثناءات المحايد",
   "exceptions-der": "استثناءات المذكر"

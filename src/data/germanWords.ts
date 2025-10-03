@@ -64,6 +64,7 @@ export type RuleId =
   | 'ships-airplanes'
   | 'cardinal-numbers'
   // === Exceptions ===
+  | 'no-rule'
   | 'exceptions-die'
   | 'exceptions-das'
   | 'exceptions-der';
@@ -124,6 +125,7 @@ export const ALL_RULE_IDS: RuleId[] = [
   'ships-airplanes',
   'cardinal-numbers',
   // Исключения
+  'no-rule',
   'exceptions-die',
   'exceptions-das',
   'exceptions-der',
@@ -152,7 +154,7 @@ export const FEMALE_RULES = new Set<RuleId>([
   'rivers-inside-germany',
   'rivers-outside-germany',
   'ships-airplanes',
-  'cardinal-numbers',
+  'cardinal-numbers'
 ]);
 
 export const NEUTRAL_RULES = new Set<RuleId>([
@@ -169,7 +171,7 @@ export const NEUTRAL_RULES = new Set<RuleId>([
   'chemical-elements',
   'fractions',
   'prefix-ge',
-  'exceptions-das',
+  'exceptions-das'
 ]);
 
 export const MALE_RULES = new Set<RuleId>([
@@ -188,7 +190,7 @@ export const MALE_RULES = new Set<RuleId>([
   'car-brands',
   'mountains',
   'male-persons',
-  'exceptions-der',
+  'exceptions-der'
 ]);
 
 
@@ -1516,7 +1518,7 @@ const GERMAN_WORDS_DATA: GermanWord[] = [
       ar: "قبو",
       hi: "तहखाना"
     },
-    ruleId: 'endings-t',
+    ruleId: 'no-rule',
     isException: false
   },
   // === СРЕДНИЙ РОД ===
@@ -5111,7 +5113,7 @@ const GERMAN_WORDS_DATA: GermanWord[] = [
     ar: "اغتيال",
     hi: "हत्या"
   },
-  ruleId: 'endings-t',
+  ruleId: 'no-rule',
   isException: true
 },
 {
@@ -5206,8 +5208,8 @@ const GERMAN_WORDS_DATA: GermanWord[] = [
     ar: "بنفسج",
     hi: "बैंगनी"
   },
-  ruleId: 'flowers-fruits-vegetables',
-  isException: true
+  ruleId: 'endings-chen-lein',
+  isException: false
 },
 {
   word: "Vergissmeinnicht",
@@ -5245,8 +5247,8 @@ const GERMAN_WORDS_DATA: GermanWord[] = [
     ar: "بنفسج ثلاثي الألوان",
     hi: "पैंसी"
   },
-  ruleId: 'flowers-fruits-vegetables',
-  isException: true
+  ruleId: 'endings-chen-lein',
+  isException: false
 },
 {
   word: "Kaffee",

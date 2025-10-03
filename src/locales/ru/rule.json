@@ -1,4 +1,4 @@
-{ 
+{
   "endings-heit-keit": "Слова на -heit, -keit → die",
   "endings-schaft": "Слова на -schaft → die",
   "endings-ung": "Слова на -ung → die",
@@ -48,6 +48,7 @@
   "female-persons": "Женщины → die",
   "ships-airplanes": "Корабли и самолёты → die",
   "cardinal-numbers": "Числа → die",
+  "no-rule": "Род определяется исторически и не подчиняется общим правилам.",
   "exceptions-die": "Исключения женского рода",
   "exceptions-das": "Исключения среднего рода",
   "exceptions-der": "Исключения мужского рода"

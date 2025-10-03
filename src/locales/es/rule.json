@@ -1,4 +1,5 @@
-{ "endings-heit-keit": "Palabras que terminan en -heit, -keit → die",
+{
+  "endings-heit-keit": "Palabras que terminan en -heit, -keit → die",
   "endings-schaft": "Palabras que terminan en -schaft → die",
   "endings-ung": "Palabras que terminan en -ung → die",
   "endings-tion": "Palabras que terminan en -tion → die",
@@ -47,6 +48,7 @@
   "female-persons": "Personas femeninas → die",
   "ships-airplanes": "Barcos y aviones → die",
   "cardinal-numbers": "Números cardinales → die",
+  "no-rule": "El género se estableció históricamente y no sigue reglas generales.",
   "exceptions-die": "Excepciones femeninas",
   "exceptions-das": "Excepciones neutras",
   "exceptions-der": "Excepciones masculinas"

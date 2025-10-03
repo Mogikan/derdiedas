@@ -48,6 +48,7 @@
   "female-persons": "여성 → die",
   "ships-airplanes": "선박 및 항공기 → die",
   "cardinal-numbers": "기수 → die",
+  "no-rule": "성별(게누스)은 역사적으로 정해진 것이며 일반적인 규칙을 따르지 않습니다.",
   "exceptions-die": "여성형 예외",
   "exceptions-das": "중성 예외",
   "exceptions-der": "남성형 예외"

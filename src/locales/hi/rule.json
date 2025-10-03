@@ -1,4 +1,4 @@
-{ 
+{
   "endings-heit-keit": "-heit, -keit पर समाप्त होने वाले शब्द → die",
   "endings-schaft": "-schaft पर समाप्त होने वाले शब्द → die",
   "endings-ung": "-ung पर समाप्त होने वाले शब्द → die",
@@ -48,6 +48,7 @@
   "female-persons": "महिलाएँ → die",
   "ships-airplanes": "जहाज और विमान → die",
   "cardinal-numbers": "गिनती के अंक → die",
+  "no-rule": "लिंग ऐतिहासिक रूप से निर्धारित होता है और सामान्य नियमों का पालन नहीं करता। इन शब्दों",
   "exceptions-die": "स्त्रीलिंग के अपवाद",
   "exceptions-das": "नपुंसकलिंग के अपवाद",
   "exceptions-der": "पुल्लिंग के अपवाद"
